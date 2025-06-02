@@ -1,0 +1,70 @@
+***********************
+Template Configuration
+***********************
+  - Deployment on XAMPP:
+    ********************
+
+    i) src/router/index.js: (only if router enabled)
+
+       //history:createWebHistory(import.meta.env.BASE_URL),
+       history: createWebHashHistory(import.meta.env.BASE_URL),
+   
+    ii) vite.config.js  (Optional) 
+        set deployment Directory dircet to htdoc in XAMPP:
+
+        //outDir: "c:/xampp/htdocs/distVue",
+        outDir: "./dist",
+
+***********************
+Change Description:
+***********************
+
+  Components
+  - src/components
+  - src/views
+  - src/App.vue 
+
+ Variables and Style Attributs 
+  - src/assets/base.css -> CSS variables 
+  - src/assets/main.css -> Style Attributs
+  
+  - XAMPP -Deployment:  
+    - vite.config.js 
+      (see comments)
+    - src/router/index.js: 
+      line added:
+      //history: createWebHashHistory(import.meta.env.BASE_URL),
+     
+
+***********************
+Debug Function
+***********************
+
+<strg>+<d> Open / close Debug Button 
+(shows ref-Vaues in console)
+
+Example code (App.vue):
+----------------------------------------------
+---- Snipset Begin -----------------------------
+------------------------------------------------
+<script setup>
+import {ref, onMounted} from 'vue'
+import { initDebug } from './assets/js/myLib'
+
+const test1 = ref(2)
+const test2 = ref('Hello World')
+
+onMounted(() => {
+   // Pass ref-Attributes tob shown in console here
+   // *********************************************
+   initDebug({ test1, test2})
+})
+
+</script>
+<template>
+<div>press &lt;strg&gt;&lt;d&gt; </div>
+<div>(show/hide debug Button)</div>
+</template>
+----------------------------------------------
+---- Snipset End -----------------------------
+----------------------------------------------

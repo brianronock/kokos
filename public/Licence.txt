@@ -1,0 +1,19 @@
+LOGOS:
+======
+https://fonts.google.com/icons - Downloaded: Mar-2025
+  - "Apache 2.0 Licence"
+  - https://opensource.org/licenses/Apache-2.0 
+
+
+Bilder
+======
+https://pixabay.com/ - Downloaded Mar-2025
+  - "Royaty free Images":
+  - https://pixabay.com/service/license-summary/
+
+
+fonts:
+======
+https://fonts.google.com - Downloaded: Mar-2025
+  - "Open font Licence"
+  - https://openfontlicense.org/

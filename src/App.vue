@@ -16,7 +16,7 @@
 
     <!-- Footer Section -->
     <footer boxCont center bg-5 co-6 p-5 f-7 f-small>
-      <p>&copy; 2025 KOKOS Namibia. All rights reserved.</p>
+      <p>&copy; 2025 KOKOS.ai Namibia. All rights reserved.</p>
       <p>Empowering Namibian learners with AI & Coding Education.</p>
     </footer>
   </div>

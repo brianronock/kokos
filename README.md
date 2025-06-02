@@ -8,10 +8,6 @@ This is the official Vue 3 website for the KOKOS Namibia AI Learning Platform.
 - Contact form with Formspree integration
 - Optimized for educational deployment
 
-Absolutely! Here’s the Markdown version of the step-by-step contributor’s guide that you can directly paste into your README.md or a separate CONTRIBUTING.md file:
-
-⸻
-
 
 ## How to Contribute to KOKOS Namibia
 

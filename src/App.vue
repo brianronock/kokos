@@ -1,39 +1,47 @@
 <template>
-  <div>
-    <div w-25>
-      <img src="./assets/img/kokosnam_logo.png" alt="" srcset="" />
-    </div>
-    <div navBar boxCont bg-5 co-5>
-      <nav>
-        <button f-5 f-big><router-link to="/">Home</router-link></button> |
-        <button f-5 f-big><router-link to="/about">About</router-link></button> |
-        <button f-5 f-big><router-link to="/pricing">Pricing</router-link></button> |
-        <button f-5 f-big><router-link to="/contact">Contact</router-link></button>
-      </nav>
-    </div>
-
-    <router-view></router-view>
-
-    <!-- Footer Section -->
-    <footer boxCont center bg-5 co-6 p-5 f-7 f-small>
-      <p>&copy; 2025 KOKOS.ai Namibia. All rights reserved.</p>
-      <p>Empowering Namibian learners with AI & Coding Education.</p>
-    </footer>
+  <div id="app">
+    <Navbar />
+    <main>
+      <Hero />
+      <Why />
+      <Offer />
+      <How />
+      <Team />
+      <FAQ />
+      <Contact />
+    </main>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue'
+import Hero from './components/Hero.vue'
+import Why from './components/Why.vue'
+import Offer from './components/Offer.vue'
+import How from './components/How.vue'
+import Team from './components/Team.vue'
+import FAQ from './components/FAQ.vue'
+import Contact from './components/Contact.vue'
+
+import Footer from './components/Footer.vue'
+
 export default {
-  name: "App",
-};
+  name: 'App',
+  components: {
+    Navbar,
+    Hero,
+    Why,
+    Offer,
+    How,
+    Team,
+    FAQ,
+    Contact,
+    Footer
+  }
+}
 </script>
 
-<style scoped>
-nav a {
-  text-decoration: none;
-}
-nav a.router-link-exact-active {
-  font-weight: bold;
-  text-decoration: underline;
-}
+<style>
+@import './assets/styles/main.css';
 </style>

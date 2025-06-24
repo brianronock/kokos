@@ -3,43 +3,46 @@
     <div class="container">
       <div class="section-header">
         <h2>Contact Us</h2>
-        <p>Ready to transform education at your school? Get in touch with our team today.</p>
+        <p>
+          Ready to transform education at your school? Get in touch with our
+          team today.
+        </p>
       </div>
-      
+
       <div class="contact-content">
         <form class="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label>First Name</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" />
             </div>
             <div class="form-group">
               <label>Last Name</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" />
             </div>
           </div>
-          
+
           <div class="form-group">
             <label>Email</label>
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" />
           </div>
-          
+
           <div class="form-group">
             <label>School Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" />
           </div>
-          
+
           <div class="form-group">
             <label>Message</label>
             <textarea class="form-control" rows="5"></textarea>
           </div>
-          
+
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
-        
+
         <div class="contact-info">
           <h3>Get In Touch</h3>
-          
+
           <div class="info-item">
             <span class="material-symbols-outlined">location_on</span>
             <div>
@@ -47,7 +50,7 @@
               <p>Independence Avenue, Windhoek, Namibia</p>
             </div>
           </div>
-          
+
           <div class="info-item">
             <span class="material-symbols-outlined">phone</span>
             <div>
@@ -55,16 +58,45 @@
               <p>+264 61 123 4567</p>
             </div>
           </div>
-          
+
           <div class="info-item">
             <span class="material-symbols-outlined">email</span>
             <div>
               <h4>Email Address</h4>
-              <p>info@kokos.ai</p>
+              <p>kokosnamibia@gmail.com</p>
             </div>
           </div>
-          
-          <div class="social-links">
+
+          <!-- <div class="info-item">
+            <a
+              href="https://www.facebook.com/profile.php?id=61577711432846"
+              class="social-icon"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <div>
+              <h4>Follow us on Facebook</h4>
+            </div>
+          </div> -->
+
+          <a
+            href="https://www.facebook.com/profile.php?id=61577711432846"
+            class="info-item full-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </span>
+            <div>
+              <h4>Facebook</h4>
+              <p>Stay updated with our latest news</p>
+            </div>
+          </a>
+
+          <!-- <div class="social-links">
             <h4>Follow Us</h4>
             <div class="social-icons">
               <a href="#" class="social-icon">
@@ -80,7 +112,7 @@
                 <i class="fab fa-instagram"></i>
               </a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -89,8 +121,8 @@
 
 <script>
 export default {
-  name: 'Contact'
-}
+  name: "Contact",
+};
 </script>
 
 <style scoped>
@@ -170,6 +202,10 @@ export default {
 
 .contact-info h3 {
   font-size: 1.75rem;
+}
+
+.contact-info a {
+  margin: 0 -1rem;
 }
 
 .info-item {

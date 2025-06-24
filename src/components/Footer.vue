@@ -4,17 +4,27 @@
       <div class="footer-grid">
         <div class="footer-about">
           <div class="footer-logo">
-            <img src="/images/logo.jpg" alt="KOKOS Logo" class="logo-img">
+            <img src="/images/logo.jpg" alt="KOKOS Logo" class="logo-img" />
             <div class="logo-text">KOKOS</div>
           </div>
           <p class="footer-description">
-            Transforming education in Namibia through innovative AI and coding programs for the next generation.
+            Transforming education in Namibia through innovative AI and coding
+            programs for the next generation.
           </p>
-          <div class="footer-social">
-            <a href="#" class="social-icon">
+          <!-- <div class="footer-social"> -->
+          <a
+            href="https://www.facebook.com/profile.php?id=61577711432846"
+            class="social-icon footer-social"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="social-icon">
               <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-icon">
+            </span>
+            <p class="social-text">Follow us on Facebook!</p>
+          </a>
+
+          <!-- <a href="#" class="social-icon">
               <i class="fab fa-twitter"></i>
             </a>
             <a href="#" class="social-icon">
@@ -22,10 +32,10 @@
             </a>
             <a href="#" class="social-icon">
               <i class="fab fa-instagram"></i>
-            </a>
-          </div>
+            </a> -->
+          <!-- </div> -->
         </div>
-        
+
         <div class="footer-links">
           <h3 class="footer-heading">Quick Links</h3>
           <ul class="footer-menu">
@@ -61,7 +71,7 @@
             </li>
           </ul>
         </div>
-        
+
         <div class="footer-contact">
           <h3 class="footer-heading">Contact Info</h3>
           <ul class="contact-info">
@@ -75,7 +85,7 @@
             </li>
             <li>
               <span class="material-symbols-outlined">email</span>
-              info@kokos.ai
+              kokosnamibia@gmail.com
             </li>
             <li>
               <span class="material-symbols-outlined">schedule</span>
@@ -83,21 +93,27 @@
             </li>
           </ul>
         </div>
-        
+
         <div class="footer-newsletter">
           <h3 class="footer-heading">Newsletter</h3>
           <p class="newsletter-text">
             Subscribe to our newsletter for the latest updates on AI education.
           </p>
           <form class="newsletter-form">
-            <input type="email" placeholder="Your email address" class="newsletter-input">
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="newsletter-input"
+            />
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
         </div>
       </div>
-      
+
       <div class="footer-bottom">
-        <p class="copyright">© {{ currentYear }} KOKOS Namibia. All rights reserved.</p>
+        <p class="copyright">
+          © {{ currentYear }} KOKOS Namibia. All rights reserved.
+        </p>
         <div class="footer-legal">
           <a href="#" class="legal-link">Privacy Policy</a>
           <a href="#" class="legal-link">Terms of Service</a>
@@ -110,13 +126,13 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: "Footer",
   computed: {
     currentYear() {
-      return new Date().getFullYear()
-    }
-  }
-}
+      return new Date().getFullYear();
+    },
+  },
+};
 </script>
 <style scoped>
 .footer {
@@ -161,7 +177,9 @@ export default {
 
 .footer-social {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .footer-social .social-icon {
@@ -174,6 +192,12 @@ export default {
   justify-content: center;
   color: var(--primary);
   transition: all 0.3s ease;
+}
+
+.social-text {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  border-bottom: 1px solid var(--gray-800);
 }
 
 .footer-social .social-icon:hover {
@@ -285,14 +309,14 @@ export default {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: left;
   }
-  
+
   .copyright {
     margin-bottom: 0;
   }

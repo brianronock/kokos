@@ -8,11 +8,20 @@
           <span class="text-orange">AI & Coding</span>
         </h1>
         <p class="hero-text">
-          Transforming education through innovative AI and coding programs for Grades 1-8, preparing students for the digital future.
+          Transforming education through innovative AI and coding programs for
+          Grades 1-8, preparing students for the digital future.
         </p>
         <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">Request a Demo</a>
-          <a href="#" class="btn btn-outline">Contact Us Today</a>
+          <a @click.prevent="$emit('request-demo')" class="btn btn-primary"
+            >Request a Demo</a
+          >
+          <a href="#contact" class="btn btn-outline">Contact Us Today</a>
+        </div>
+                <div class="video-wrapper">
+          <video controls width="100%">
+            <source src="/videos/kokos_india-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
@@ -21,8 +30,8 @@
 
 <script>
 export default {
-  name: 'Hero'
-}
+  name: "Hero",
+};
 </script>
 
 <style scoped>
@@ -32,9 +41,13 @@ export default {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: 
-    linear-gradient(to right, rgba(0,0,0,0.7), rgba(17,24,39,0.7)),
-    url('https://source.unsplash.com/random/1600x900/?education,technology,coding,classroom') center/cover no-repeat;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(17, 24, 39, 0.7)
+    ),
+    url("https://source.unsplash.com/random/1600x900/?education,technology,coding,classroom")
+      center/cover no-repeat;
 }
 
 .hero-overlay {
@@ -106,11 +119,21 @@ export default {
   color: #fff;
 }
 
+.video-wrapper {
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
 @media (min-width: 640px) {
   .hero-title {
     font-size: 3.5rem;
   }
-  
+
   .hero-buttons {
     flex-direction: row;
   }

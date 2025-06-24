@@ -3,7 +3,10 @@
     <div class="container">
       <div class="section-header">
         <h2>KOKOS Integrated Learning Platform</h2>
-        <p>Everything schools need to implement world-class AI and coding education.</p>
+        <p>
+          Everything schools need to implement world-class AI and coding
+          education.
+        </p>
       </div>
 
       <div class="offer-content">
@@ -14,7 +17,10 @@
             </div>
             <div class="feature-text">
               <h3>AI & Coding Curriculum</h3>
-              <p>Scratch, Python, and WebXR programming tailored for young learners</p>
+              <p>
+                Scratch, Python, and WebXR programming tailored for young
+                learners
+              </p>
             </div>
           </div>
 
@@ -82,7 +88,7 @@
                 Progress tracking & analytics
               </li>
             </ul>
-            <button class="btn btn-white">Get Started Today</button>
+            <a href="#contact" class="btn btn-white">Get Started Today</a>
           </div>
         </div>
       </div>
@@ -96,7 +102,15 @@
             </div>
             <h4>Program Brochure</h4>
             <p>Complete overview of our offerings</p>
-            <button class="btn btn-primary">Download PDF</button>
+            <a
+              href="/files/kokos_namibia-brochure.pdf"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              download="KOKOS_AI_Brochure.pdf"
+            >
+              Download PDF
+            </a>
           </div>
 
           <div class="resource-card">
@@ -105,7 +119,7 @@
             </div>
             <h4>Teacher Guide</h4>
             <p>Implementation guide for educators</p>
-            <button class="btn btn-primary">Download PDF</button>
+            <button class="btn btn-primary">Coming soon...</button>
           </div>
 
           <div class="resource-card">
@@ -114,7 +128,15 @@
             </div>
             <h4>Curriculum Overview</h4>
             <p>Detailed curriculum breakdown</p>
-            <button class="btn btn-primary">Download PDF</button>
+            <a
+              href="/files/kokos_india-brochure.pdf"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              download="KOKOS_AI_Curriculum_Overview.pdf"
+            >
+              Download PDF
+            </a>
           </div>
         </div>
       </div>
@@ -124,8 +146,8 @@
 
 <script>
 export default {
-  name: 'Offer'
-}
+  name: "Offer",
+};
 </script>
 
 <style scoped>
@@ -198,7 +220,11 @@ export default {
 }
 
 .pricing-card {
-  background: linear-gradient(to bottom right, #e66a00, #e68a49); /* Darker orange gradient */
+  background: linear-gradient(
+    to bottom right,
+    #e66a00,
+    #e68a49
+  ); /* Darker orange gradient */
   border-radius: 1.5rem;
   padding: 2.5rem;
   color: var(--white);

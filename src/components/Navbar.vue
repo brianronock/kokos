@@ -2,35 +2,105 @@
   <header class="navbar">
     <div class="container">
       <div class="navbar-container">
-        <div class="logo">
-          <img src="/images/logo.jpg" alt="KOKOS Logo" class="logo-img">
-        //#<div class="logo-text"></div>
-          <div class="location">Namibia</div>
-        </div>
-        
+        <a href="" class="logo" @click="$emit('navigate', 'home')">
+          <img src="/images/logo2.png" alt="KOKOS Logo" class="logo-img" />
+          <div class="logo-text">Namibia</div>
+          <!-- <div class="location"></div> -->
+        </a>
+
         <nav class="desktop-nav">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#why" class="nav-link">Why AI Education?</a>
-          <a href="#offer" class="nav-link">What We Offer</a>
-          <a href="#how" class="nav-link">How It Works</a>
-          <a href="#team" class="nav-link">Team</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#home" class="nav-link" @click="$emit('navigate', 'home')"
+            >Home</a
+          >
+          <a href="#why" class="nav-link" @click="$emit('navigate', 'home')"
+            >Why AI Education?</a
+          >
+          <a href="#offer" class="nav-link" @click="$emit('navigate', 'home')"
+            >What We Offer</a
+          >
+          <a href="#how" class="nav-link" @click="$emit('navigate', 'home')"
+            >How It Works</a
+          >
+          <a href="#team" class="nav-link" @click="$emit('navigate', 'home')"
+            >Team</a
+          >
+          <a href="#contact" class="nav-link" @click="$emit('navigate', 'home')"
+            >Contact</a
+          >
+          <a href="#faq" class="nav-link" @click="$emit('navigate', 'home')"
+            >FAQ</a
+          >
         </nav>
-        
-        <div class="mobile-nav">
+
+        <div ref="mobileMenu" class="mobile-nav">
           <details class="mobile-menu">
             <summary class="menu-toggle">
               <span class="material-symbols-outlined">menu</span>
             </summary>
             <div class="mobile-menu-items">
-              <a href="#home" class="mobile-nav-link">Home</a>
-              <a href="#why" class="mobile-nav-link">Why AI Education?</a>
-              <a href="#offer" class="mobile-nav-link">What We Offer</a>
-              <a href="#how" class="mobile-nav-link">How It Works</a>
-              <a href="#team" class="mobile-nav-link">Team</a>
-              <a href="#contact" class="mobile-nav-link">Contact</a>
-              <a href="#faq" class="mobile-nav-link">FAQ</a>
+              <a
+                href="#home"
+                class="mobile-nav-link"
+                @click="
+                  $emit('navigate', 'home');
+                  closeMobileMenu();
+                "
+                >Home</a
+              >
+              <a
+                href="#why"
+                class="mobile-nav-link"
+                @click="
+                  $emit('navigate', 'home');
+                  closeMobileMenu();
+                "
+                >Why AI Education?</a
+              >
+              <a
+                href="#offer"
+                class="mobile-nav-link"
+                @click="
+                  $emit('navigate', 'home');
+                  closeMobileMenu();
+                "
+                >What We Offer</a
+              >
+              <a
+                href="#how"
+                class="mobile-nav-link"
+                @click="
+                  $emit('navigate', 'home');
+                  closeMobileMenu();
+                "
+                >How It Works</a
+              >
+              <a
+                href="#team"
+                class="mobile-nav-link"
+                @click="
+                  $emit('navigate', 'home');
+                  closeMobileMenu();
+                "
+                >Team</a
+              >
+              <a
+                href="#contact"
+                class="mobile-nav-link"
+                @click="
+                  $emit('navigate', 'home');
+                  closeMobileMenu();
+                "
+                >Contact</a
+              >
+              <a
+                href="#faq"
+                class="mobile-nav-link"
+                @click="
+                  $emit('navigate', 'home');
+                  closeMobileMenu();
+                "
+                >FAQ</a
+              >
             </div>
           </details>
         </div>
@@ -41,10 +111,15 @@
 
 <script>
 export default {
-  name: 'Navbar'
-}
+  name: "Navbar",
+  methods: {
+    closeMobileMenu() {
+      const details = this.$el.querySelector(".mobile-menu");
+      if (details) details.removeAttribute("open");
+    },
+  },
+};
 </script>
-
 
 <style scoped>
 .navbar {
@@ -65,18 +140,26 @@ export default {
 .logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.05);
 }
 
 .logo-img {
-  height: 2.5rem;
+  height: 8.5rem;
   width: auto;
-  margin-right: 0.5rem;
+  margin-right: -0.5rem;
+  transition: transform 0.3s ease;
 }
 
 .logo-text {
   color: var(--primary);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 300;
+  margin-top: -1rem;
 }
 
 .location {
@@ -144,7 +227,7 @@ export default {
   .desktop-nav {
     display: flex;
   }
-  
+
   .mobile-nav {
     display: none;
   }

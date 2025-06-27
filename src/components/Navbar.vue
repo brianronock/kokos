@@ -2,159 +2,52 @@
   <header class="navbar">
     <div class="container">
       <div class="navbar-container">
-        <a href="" class="logo" @click="$emit('navigate', 'home')">
+        <a href="#" class="logo" @click.prevent="$emit('navigate', 'home')">
           <img src="/images/logo2.png" alt="KOKOS Logo" class="logo-img" />
           <div class="logo-text">Namibia</div>
-          <!-- <div class="location"></div> -->
         </a>
 
-        <!-- <nav class="desktop-nav">
-          <a href="#home" class="nav-link" @click="$emit('navigate', 'home')"
-            >Home</a
-          >
-          <a href="#why" class="nav-link" @click="$emit('navigate', 'home')"
-            >Why AI Education?</a
-          >
-          <a href="#offer" class="nav-link" @click="$emit('navigate', 'home')"
-            >What We Offer</a
-          >
-          <a href="#how" class="nav-link" @click="$emit('navigate', 'home')"
-            >How It Works</a
-          >
-          <a href="#team" class="nav-link" @click="$emit('navigate', 'home')"
-            >Team</a
-          >
-          <a href="#contact" class="nav-link" @click="$emit('navigate', 'home')"
-            >Contact</a
-          >
-          <a href="#faq" class="nav-link" @click="$emit('navigate', 'home')"
-            >FAQ</a
-          >
-        </nav> -->
-
-        <nav>
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
           <a
+            v-for="link in links"
+            :key="link.href"
+            :href="link.href"
             class="nav-link"
-            :href="currentView === 'home' ? '#home' : ''"
-            @click.prevent="handleNavClick('home')"
+            @click="$emit('navigate', 'home')"
           >
-            Home
-          </a>
-          <a
-            class="nav-link"
-            :href="currentView === 'home' ? '#why' : ''"
-            @click.prevent="handleNavClick('why')"
-          >
-            Why AI Education?
-          </a>
-          <a
-            class="nav-link"
-            :href="currentView === 'home' ? '#offer' : ''"
-            @click.prevent="handleNavClick('offer')"
-          >
-            What We Offer
-          </a>
-          <a
-            class="nav-link"
-            :href="currentView === 'home' ? '#how' : ''"
-            @click.prevent="handleNavClick('how')"
-          >
-            How It Works
-          </a>
-          <a
-            class="nav-link"
-            :href="currentView === 'home' ? '#team' : ''"
-            @click.prevent="handleNavClick('team')"
-          >
-            Team
-          </a>
-          <a
-            class="nav-link"
-            :href="currentView === 'home' ? '#contact' : ''"
-            @click.prevent="handleNavClick('contact')"
-          >
-            Contact
-          </a>
-          <a
-            class="nav-link"
-            :href="currentView === 'home' ? '#faq' : ''"
-            @click.prevent="handleNavClick('faq')"
-          >
-            FAQ
+            {{ link.label }}
           </a>
         </nav>
 
+        <!-- MOBILE MENU -->
         <div ref="mobileMenu" class="mobile-nav">
-          <details class="mobile-menu">
-            <summary class="menu-toggle">
-              <span class="material-symbols-outlined">menu</span>
-            </summary>
-            <div class="mobile-menu-items">
+          <button class="menu-toggle" @click="toggleMenu">
+            <span class="material-symbols-outlined">
+              {{ menuOpen ? "close" : "menu" }}
+            </span>
+          </button>
+
+          <div
+            v-if="menuOpen"
+            class="mobile-menu-overlay"
+            @click.self="closeMobileMenu"
+          >
+            <div class="mobile-menu-items slide-down">
               <a
-                href="#home"
+                v-for="link in links"
+                :key="link.href"
+                :href="link.href"
                 class="mobile-nav-link"
                 @click="
                   $emit('navigate', 'home');
                   closeMobileMenu();
                 "
-                >Home</a
               >
-              <a
-                href="#why"
-                class="mobile-nav-link"
-                @click="
-                  $emit('navigate', 'home');
-                  closeMobileMenu();
-                "
-                >Why AI Education?</a
-              >
-              <a
-                href="#offer"
-                class="mobile-nav-link"
-                @click="
-                  $emit('navigate', 'home');
-                  closeMobileMenu();
-                "
-                >What We Offer</a
-              >
-              <a
-                href="#how"
-                class="mobile-nav-link"
-                @click="
-                  $emit('navigate', 'home');
-                  closeMobileMenu();
-                "
-                >How It Works</a
-              >
-              <a
-                href="#team"
-                class="mobile-nav-link"
-                @click="
-                  $emit('navigate', 'home');
-                  closeMobileMenu();
-                "
-                >Team</a
-              >
-              <a
-                href="#contact"
-                class="mobile-nav-link"
-                @click="
-                  $emit('navigate', 'home');
-                  closeMobileMenu();
-                "
-                >Contact</a
-              >
-              <a
-                href="#faq"
-                class="mobile-nav-link"
-                @click="
-                  $emit('navigate', 'home');
-                  closeMobileMenu();
-                "
-                >FAQ</a
-              >
+                {{ link.label }}
+              </a>
             </div>
-          </details>
+          </div>
         </div>
       </div>
     </div>
@@ -164,49 +57,46 @@
 <script>
 export default {
   name: "Navbar",
-  props: {
-    currentView: {
-      type: String,
-      required: true,
-    },
+  data() {
+    return {
+      menuOpen: false,
+      links: [
+        { href: "#home", label: "Home" },
+        { href: "#why", label: "Why AI Education?" },
+        { href: "#offer", label: "What We Offer" },
+        { href: "#how", label: "How It Works" },
+        { href: "#team", label: "Team" },
+        { href: "#contact", label: "Contact" },
+        { href: "#faq", label: "FAQ" },
+      ],
+    };
   },
   methods: {
-    handleNavClick(sectionId) {
-      if (this.currentView === "home") {
-        // Already on homepage, just scroll
-        this.scrollToSection(sectionId);
-      } else {
-        // Go to homepage first
-        this.$emit("navigate", "home");
-        setTimeout(() => {
-          // Wait for the DOM to render
-          requestAnimationFrame(() => {
-            this.scrollToSection(sectionId);
-          });
-        }, 300); // Give transition some time
-      }
-    },
-    scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "auto" });
-      }
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
     },
     closeMobileMenu() {
-      const details = this.$el.querySelector(".mobile-menu");
-      if (details) details.removeAttribute("open");
+      this.menuOpen = false;
     },
+  },
+  watch: {
+    menuOpen(newVal) {
+      document.body.style.overflow = newVal ? "hidden" : "";
+    },
+  },
+  beforeUnmount() {
+    document.body.style.overflow = ""; // safety reset
   },
 };
 </script>
 
 <style scoped>
 .navbar {
-  background-color: var(--gray-900);
+  background-color: var(--black);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
 }
 
 .navbar-container {
@@ -235,16 +125,10 @@ export default {
 }
 
 .logo-text {
-  color: var(--orange3);
+  color: var(--primary);
   font-size: 1.5rem;
   font-weight: 300;
   margin-top: -1rem;
-}
-
-.location {
-  color: var(--white);
-  font-size: 0.875rem;
-  margin-left: 0.5rem;
 }
 
 .desktop-nav {
@@ -252,7 +136,7 @@ export default {
 }
 
 .nav-link {
-  color: var(--white2);
+  color: var(--white);
   padding: 0.5rem 0.75rem;
   margin: 0 0.25rem;
   font-size: 0.875rem;
@@ -262,44 +146,92 @@ export default {
 }
 
 .nav-link:hover {
-  color: var(--orange1);
+  color: var(--primary);
 }
 
 .mobile-nav {
   display: block;
 }
-
 .menu-toggle {
-  color: var(--white);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  transition: color 0.3s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 2001;
+  position: relative;
+  top: 0rem;
+  right: 2rem;
+}
+.menu-toggle:active {
+  transform: scale(0.95);
 }
 
-.mobile-menu-items {
-  position: absolute;
-  right: 1rem;
-  top: 4rem;
-  width: 12rem;
-  background-color: var(--gray-900);
-  border-radius: 0.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-  display: none;
+.menu-toggle:hover {
+  color: var(--primary);
+}
+.material-symbols-outlined {
+  font-variation-settings: "wght" 300;
+  font-size: 3rem;
+  position: relative;
+  pointer-events: none;
 }
 
-.mobile-menu[open] .mobile-menu-items {
-  display: block;
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4rem; /* ensures items start below navbar */
+  transition: background-color 0.4s ease;
+}
+
+/* Slide-down animation */
+.slide-down {
+  background-color: var(--black);
+  width: 80%;
+  max-width: 300px;
+  border-radius: 0.5rem;
+  animation: slideIn 0.3s ease forwards;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .mobile-nav-link {
-  display: block;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
+  text-decoration: none;
   color: var(--white);
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  transition: background 0.3s ease;
 }
 
+
+
 .mobile-nav-link:hover {
-  color: var(--primary);
   background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary);
 }
 
 @media (min-width: 768px) {

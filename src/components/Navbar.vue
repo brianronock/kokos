@@ -8,7 +8,7 @@
           <!-- <div class="location"></div> -->
         </a>
 
-        <nav class="desktop-nav">
+        <!-- <nav class="desktop-nav">
           <a href="#home" class="nav-link" @click="$emit('navigate', 'home')"
             >Home</a
           >
@@ -30,6 +30,58 @@
           <a href="#faq" class="nav-link" @click="$emit('navigate', 'home')"
             >FAQ</a
           >
+        </nav> -->
+
+        <nav>
+          <a
+            class="nav-link"
+            :href="currentView === 'home' ? '#home' : ''"
+            @click.prevent="handleNavClick('home')"
+          >
+            Home
+          </a>
+          <a
+            class="nav-link"
+            :href="currentView === 'home' ? '#why' : ''"
+            @click.prevent="handleNavClick('why')"
+          >
+            Why AI Education?
+          </a>
+          <a
+            class="nav-link"
+            :href="currentView === 'home' ? '#offer' : ''"
+            @click.prevent="handleNavClick('offer')"
+          >
+            What We Offer
+          </a>
+          <a
+            class="nav-link"
+            :href="currentView === 'home' ? '#how' : ''"
+            @click.prevent="handleNavClick('how')"
+          >
+            How It Works
+          </a>
+          <a
+            class="nav-link"
+            :href="currentView === 'home' ? '#team' : ''"
+            @click.prevent="handleNavClick('team')"
+          >
+            Team
+          </a>
+          <a
+            class="nav-link"
+            :href="currentView === 'home' ? '#contact' : ''"
+            @click.prevent="handleNavClick('contact')"
+          >
+            Contact
+          </a>
+          <a
+            class="nav-link"
+            :href="currentView === 'home' ? '#faq' : ''"
+            @click.prevent="handleNavClick('faq')"
+          >
+            FAQ
+          </a>
         </nav>
 
         <div ref="mobileMenu" class="mobile-nav">
@@ -112,7 +164,34 @@
 <script>
 export default {
   name: "Navbar",
+  props: {
+    currentView: {
+      type: String,
+      required: true,
+    },
+  },
   methods: {
+    handleNavClick(sectionId) {
+      if (this.currentView === "home") {
+        // Already on homepage, just scroll
+        this.scrollToSection(sectionId);
+      } else {
+        // Go to homepage first
+        this.$emit("navigate", "home");
+        setTimeout(() => {
+          // Wait for the DOM to render
+          requestAnimationFrame(() => {
+            this.scrollToSection(sectionId);
+          });
+        }, 300); // Give transition some time
+      }
+    },
+    scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "auto" });
+      }
+    },
     closeMobileMenu() {
       const details = this.$el.querySelector(".mobile-menu");
       if (details) details.removeAttribute("open");
@@ -123,7 +202,7 @@ export default {
 
 <style scoped>
 .navbar {
-  background-color: var(--black);
+  background-color: var(--gray-900);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -156,7 +235,7 @@ export default {
 }
 
 .logo-text {
-  color: var(--primary);
+  color: var(--orange3);
   font-size: 1.5rem;
   font-weight: 300;
   margin-top: -1rem;
@@ -173,7 +252,7 @@ export default {
 }
 
 .nav-link {
-  color: var(--white);
+  color: var(--white2);
   padding: 0.5rem 0.75rem;
   margin: 0 0.25rem;
   font-size: 0.875rem;
@@ -183,7 +262,7 @@ export default {
 }
 
 .nav-link:hover {
-  color: var(--primary);
+  color: var(--orange1);
 }
 
 .mobile-nav {
@@ -200,7 +279,7 @@ export default {
   right: 1rem;
   top: 4rem;
   width: 12rem;
-  background-color: var(--black);
+  background-color: var(--gray-900);
   border-radius: 0.25rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   z-index: 50;

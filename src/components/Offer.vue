@@ -88,7 +88,9 @@
                 Progress tracking & analytics
               </li>
             </ul>
-            <a href="#contact" class="btn btn-white">Get Started Today</a>
+            <a @click.prevent="$emit('request-demo')" class="btn btn-white"
+              >Get Started Today</a
+            >
           </div>
         </div>
       </div>
@@ -152,7 +154,7 @@ export default {
 
 <style scoped>
 .offer-section {
-  background-color: var(--white);
+  background-color: var(--white2);
   padding: 5rem 0;
 }
 
@@ -196,7 +198,7 @@ export default {
 .feature-icon {
   width: 3rem;
   height: 3rem;
-  background-color: var(--primary);
+  background-color: var(--orange1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -222,12 +224,12 @@ export default {
 .pricing-card {
   background: linear-gradient(
     to bottom right,
-    #e66a00,
-    #e68a49
+    var(--orange1),
+    var(--primary)
   ); /* Darker orange gradient */
   border-radius: 1.5rem;
   padding: 2.5rem;
-  color: var(--white);
+  color: var(--white1);
   text-align: center;
   outline: none; /* Ensure no default focus outline */
   border: none; /* Ensure no explicit border */
@@ -266,8 +268,8 @@ export default {
 }
 
 .btn-white {
-  background-color: var(--white);
-  color: var(--primary);
+  background-color: var(--white1);
+  color: var(--orange1);
   width: 100%;
   padding: 0.75rem;
   font-weight: 600;
@@ -295,7 +297,7 @@ export default {
 }
 
 .resource-card {
-  background-color: var(--gray-50);
+  background-color: var(--white1);
   padding: 1.5rem;
   border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

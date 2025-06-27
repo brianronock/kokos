@@ -4,8 +4,8 @@
       <div class="footer-grid">
         <div class="footer-about">
           <div class="footer-logo">
-            <img src="/images/logo.jpg" alt="KOKOS Logo" class="logo-img" />
-            <div class="logo-text">KOKOS</div>
+            <img src="/images/logo2.png" alt="KOKOS Logo" class="logo-img" />
+            <div class="logo-text">AfriLearn AI Academy</div>
           </div>
           <p class="footer-description">
             Transforming education in Namibia through innovative AI and coding
@@ -136,8 +136,8 @@ export default {
 </script>
 <style scoped>
 .footer {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--gray-900);
+  color: var(--white2);
   padding: 4rem 0 0;
 }
 
@@ -157,17 +157,17 @@ export default {
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0rem;
 }
 
 .footer-logo .logo-img {
-  height: 2.5rem;
+  height: 3.5rem;
   width: auto;
 }
 
 .footer-logo .logo-text {
-  color: var(--primary);
-  font-size: 1.5rem;
+  color: var(--orange3);
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -186,7 +186,7 @@ export default {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background-color: var(--gray-800);
+  background-color: var(--gray-700);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,7 +197,7 @@ export default {
 .social-text {
   font-size: 0.9rem;
   color: var(--gray-400);
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid var(--gray-500);
 }
 
 .footer-social .social-icon:hover {
@@ -209,7 +209,7 @@ export default {
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid var(--gray-500);
 }
 
 .footer-menu {
@@ -228,7 +228,7 @@ export default {
 }
 
 .footer-menu a:hover {
-  color: var(--primary);
+  color: var(--orange1);
 }
 
 .footer-menu span {
@@ -268,8 +268,8 @@ export default {
 .newsletter-input {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  background-color: var(--gray-800);
-  border: 1px solid var(--gray-700);
+  background-color: var(--gray-700);
+  border: 1px solid var(--gray-600);
   color: var(--white);
   transition: border-color 0.3s ease;
 }
@@ -281,12 +281,12 @@ export default {
 
 .footer-bottom {
   padding-top: 2rem;
-  border-top: 1px solid var(--gray-800);
+  border-top: 1px solid var(--gray-600);
   text-align: center;
 }
 
 .copyright {
-  color: var(--gray-500);
+  color: var(--gray-400);
   margin-bottom: 1rem;
 }
 
@@ -297,7 +297,7 @@ export default {
 }
 
 .legal-link {
-  color: var(--gray-500);
+  color: var(--gray-400);
   transition: color 0.3s ease;
 }
 

@@ -17,6 +17,15 @@
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
+
+  /* Theme Colors*/
+  --orange1: #fd8804;
+  --orange2: #fcbe03;
+  --orange3: #fea000;
+  --blue1: #022d5e;
+  --blue2: #bbd4f5;
+  --white1: #fbfafb;
+  --white2: #e5efff;
 }
 
 * {
@@ -85,23 +94,23 @@ a {
 }
 
 .btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--orange1);
+  color: var(--white1);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
+  background-color: var(--primary);
   transform: translateY(-2px);
 }
 
 .btn-outline {
   border: 2px solid var(--primary);
-  color: var(--primary);
+  color: var(--orange1);
 }
 
 .btn-outline:hover {
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--orange1);
+  color: var(--white1);
 }
 
 .text-center {

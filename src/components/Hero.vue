@@ -17,7 +17,7 @@
           >
           <a href="#contact" class="btn btn-outline">Contact Us Today</a>
         </div>
-                <div class="video-wrapper">
+        <div class="video-wrapper">
           <video controls width="100%">
             <source src="/videos/kokos_india-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -37,23 +37,23 @@ export default {
 <style scoped>
 .hero-section {
   position: relative;
-  color: #fff;
+  color: var(--white1);
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(
+  /* background: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.7),
       rgba(17, 24, 39, 0.7)
     ),
     url("https://source.unsplash.com/random/1600x900/?education,technology,coding,classroom")
-      center/cover no-repeat;
+      center/cover no-repeat; */
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--blue1);
 }
 
 .hero-content {
@@ -70,7 +70,7 @@ export default {
 }
 
 .text-orange {
-  color: #f97316;
+  color: var(--orange1);
 }
 
 .hero-text {
@@ -99,24 +99,24 @@ export default {
 }
 
 .btn-primary {
-  background-color: #f97316;
-  color: #fff;
+  background-color: var(--orange1);
+  color: var(--white1);
 }
 
 .btn-primary:hover {
-  background-color: #ea580c;
+  background-color: var(--orange1);
   transform: translateY(-2px);
 }
 
 .btn-outline {
-  border: 2px solid #f97316;
-  color: #f97316;
+  border: 2px solid var(--orange1);
+  color: var(--orange1);
   background-color: transparent;
 }
 
 .btn-outline:hover {
-  background-color: #f97316;
-  color: #fff;
+  background-color: var(--orange1);
+  color: var(--white1);
 }
 
 .video-wrapper {

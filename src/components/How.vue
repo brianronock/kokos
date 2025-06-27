@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .how-section {
-  background-color: var(--gray-50);
+  background-color: var(--white1);
   padding: 5rem 0;
 }
 
@@ -106,7 +106,7 @@ export default {
 
 .timeline-content {
   padding: 1.5rem;
-  background-color: var(--white);
+  background-color: var(--white2);
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -141,7 +141,7 @@ export default {
   height: 1.5rem;
   background-color: var(--primary);
   border-radius: 50%;
-  border: 4px solid var(--white);
+  border: 4px solid var(--white1);
   position: absolute;
   top: 50%;
   left: 50%;

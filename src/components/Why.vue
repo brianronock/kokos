@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .why-section {
-  background-color: var(--gray-50);
+  background-color: var(--blue2);
   padding: 5rem 0;
 }
 
@@ -88,12 +88,12 @@ export default {
 }
 
 .feature-card {
-  background-color: var(--white);
+  background-color: var(--white1);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--orange1);
 }
 
 .feature-card:hover {
@@ -128,7 +128,7 @@ export default {
 }
 
 .stats-container {
-  background-color: var(--black);
+  background-color: var(--blue1);
   border-radius: 1.5rem;
   padding: 2rem;
   display: grid;
@@ -138,13 +138,13 @@ export default {
 
 .stat-item {
   text-align: center;
-  color: var(--white);
+  color: var(--white1);
 }
 
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--orange1);
   margin-bottom: 0.5rem;
 }
 

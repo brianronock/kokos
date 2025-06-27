@@ -11,10 +11,9 @@
             Transforming education in Namibia through innovative AI and coding
             programs for the next generation.
           </p>
-          <!-- <div class="footer-social"> -->
           <a
             href="https://www.facebook.com/profile.php?id=61577711432846"
-            class="social-icon footer-social"
+            class="social-link-wrapper"
             target="_blank"
             rel="noopener"
           >
@@ -23,17 +22,6 @@
             </span>
             <p class="social-text">Follow us on Facebook!</p>
           </a>
-
-          <!-- <a href="#" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a> -->
-          <!-- </div> -->
         </div>
 
         <div class="footer-links">
@@ -134,11 +122,29 @@ export default {
   },
 };
 </script>
+
+---
+
+```css
 <style scoped>
+/* --- COLOR PALETTE (for reference) --- */
+/* Primary Dark Blue: #022D5E */
+/* Secondary Orange: #FD8804 */
+/* Accent Yellow: #FCBE03 */
+/* Light Blue Background: #E5EFFF */
+/* Off-white Neutral: #FBFAFB */
+/* Mid-light Blue: #BBD4F5 */
+
 .footer {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: #022D5E; /* Primary Dark Blue background for the footer */
+  color: #FBFAFB; /* Off-white for general text on dark background */
   padding: 4rem 0 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .footer-grid {
@@ -166,50 +172,64 @@ export default {
 }
 
 .footer-logo .logo-text {
-  color: var(--primary);
+  color: #FD8804; /* Secondary Orange for the logo text */
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .footer-description {
-  color: var(--gray-400);
+  color: #BBD4F5; /* Mid-light Blue for description text */
 }
 
-.footer-social {
-  display: flex;
-  flex-direction: column;
+/* Social link wrapper for better alignment */
+.social-link-wrapper {
+  display: inline-flex; /* Use inline-flex for easier centering/alignment */
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem; /* Space between icon and text */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+  transition: color 0.3s ease;
 }
 
-.footer-social .social-icon {
+.social-link-wrapper:hover {
+  color: #FCBE03; /* Accent Yellow on hover for the whole link */
+}
+
+.footer-social .social-icon { /* Specific styling for the social icon itself */
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background-color: var(--gray-800);
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle white background for icon circle */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  color: #FD8804; /* Secondary Orange for the icon */
   transition: all 0.3s ease;
 }
 
-.social-text {
-  font-size: 0.9rem;
-  color: var(--gray-400);
-  border-bottom: 1px solid var(--gray-800);
+.social-link-wrapper:hover .social-icon { /* Hover for the icon within the link */
+  background-color: #FD8804; /* Secondary Orange on hover */
+  color: #022D5E; /* Dark Blue text/icon on hover */
 }
 
-.footer-social .social-icon:hover {
-  background-color: var(--primary);
-  color: var(--white);
+.social-text {
+  font-size: 0.95rem; /* Slightly larger text */
+  color: #BBD4F5; /* Mid-light blue for social text */
+  border-bottom: 1px solid transparent; /* No initial border */
+  transition: border-color 0.3s ease;
 }
+
+.social-link-wrapper:hover .social-text {
+  border-color: #BBD4F5; /* Add subtle border on hover */
+}
+
 
 .footer-heading {
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+  color: #FCBE03; /* Accent Yellow for headings */
 }
 
 .footer-menu {
@@ -217,22 +237,25 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  padding: 0; /* Remove default padding */
 }
 
 .footer-menu a {
-  color: var(--gray-400);
+  color: #BBD4F5; /* Mid-light Blue for menu links */
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none; /* Remove underline */
   transition: color 0.3s ease;
 }
 
 .footer-menu a:hover {
-  color: var(--primary);
+  color: #FD8804; /* Secondary Orange on hover for menu links */
 }
 
 .footer-menu span {
   font-size: 1rem;
+  color: #FD8804; /* Secondary Orange for arrow icons */
 }
 
 .contact-info {
@@ -240,22 +263,23 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0; /* Remove default padding */
 }
 
 .contact-info li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  color: var(--gray-400);
+  color: #BBD4F5; /* Mid-light Blue for contact info text */
 }
 
 .contact-info span {
-  color: var(--primary);
+  color: #FD8804; /* Secondary Orange for contact icons */
   font-size: 1.25rem;
 }
 
 .newsletter-text {
-  color: var(--gray-400);
+  color: #BBD4F5; /* Mid-light Blue for newsletter description */
   margin-bottom: 1.5rem;
 }
 
@@ -268,25 +292,64 @@ export default {
 .newsletter-input {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  background-color: var(--gray-800);
-  border: 1px solid var(--gray-700);
-  color: var(--white);
-  transition: border-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for input background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly more opaque border */
+  color: #FBFAFB; /* Off-white text in input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Lighter placeholder on dark background */
 }
 
 .newsletter-input:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: #FD8804; /* Secondary Orange on focus */
+  box-shadow: 0 0 0 3px rgba(253, 136, 4, 0.2); /* Orange glow on focus */
 }
 
+/* Primary Button (Subscribe) Styles - adapted for dark background */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1.1rem;
+  line-height: 1;
+
+  background-color: #FD8804; /* Secondary Orange background */
+  color: #022D5E; /* Dark Blue text on orange button */
+  box-shadow: 0 4px 8px rgba(253, 136, 4, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #FCBE03; /* Accent Yellow on hover */
+  color: #022D5E; /* Dark Blue text on yellow hover */
+  box-shadow: 0 6px 12px rgba(252, 190, 3, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+
 .footer-bottom {
-  padding-top: 2rem;
-  border-top: 1px solid var(--gray-800);
+  padding: 2rem 0; /* Adjusted padding to be symmetrical */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
   text-align: center;
+  margin-top: 3rem; /* Add some space above the bottom section */
 }
 
 .copyright {
-  color: var(--gray-500);
+  color: #BBD4F5; /* Mid-light Blue for copyright text */
   margin-bottom: 1rem;
 }
 
@@ -297,12 +360,13 @@ export default {
 }
 
 .legal-link {
-  color: var(--gray-500);
+  color: #BBD4F5; /* Mid-light Blue for legal links */
   transition: color 0.3s ease;
+  text-decoration: none; /* Remove default underline */
 }
 
 .legal-link:hover {
-  color: var(--primary);
+  color: #FD8804; /* Secondary Orange on hover */
 }
 
 @media (min-width: 768px) {

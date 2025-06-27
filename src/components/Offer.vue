@@ -150,10 +150,28 @@ export default {
 };
 </script>
 
+---
+
+```css
 <style scoped>
+/* --- COLOR PALETTE (for reference) --- */
+/* Primary Dark Blue: #022D5E */
+/* Secondary Orange: #FD8804 */
+/* Accent Yellow: #FCBE03 */
+/* Light Blue Background: #E5EFFF */
+/* Off-white Neutral: #FBFAFB */
+/* Mid-light Blue: #BBD4F5 */
+/* Readable Dark Grey: #4A5568 */
+
 .offer-section {
-  background-color: var(--white);
+  background-color: #fbfafb; /* Off-white Neutral */
   padding: 5rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .section-header {
@@ -163,13 +181,13 @@ export default {
 
 .section-header h2 {
   font-size: 2.5rem;
-  color: var(--black);
+  color: #022d5e; /* Primary Dark Blue */
   margin-bottom: 1rem;
 }
 
 .section-header p {
   font-size: 1.25rem;
-  color: var(--gray-600);
+  color: #4a5568; /* Readable Dark Grey */
   max-width: 48rem;
   margin: 0 auto;
 }
@@ -196,7 +214,8 @@ export default {
 .feature-icon {
   width: 3rem;
   height: 3rem;
-  background-color: var(--primary);
+  /* Twitch: Changed background to transparent Primary Dark Blue */
+  background-color: rgba(2, 45, 94, 0.1); /* Primary Dark Blue with 10% opacity */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -205,32 +224,30 @@ export default {
 }
 
 .feature-icon span {
-  color: var(--white);
+  color: #fd8804; /* Secondary Orange (icon color remains strong) */
   font-size: 1.5rem;
 }
 
 .feature-text h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: var(--black);
+  color: #022d5e; /* Primary Dark Blue */
 }
 
 .feature-text p {
-  color: var(--gray-600);
+  color: #4a5568; /* Readable Dark Grey */
 }
 
 .pricing-card {
-  background: linear-gradient(
-    to bottom right,
-    #e66a00,
-    #e68a49
-  ); /* Darker orange gradient */
+  /* Twitch: Changed background to solid Primary Dark Blue */
+  background-color: #022d5e; /* Primary Dark Blue */
   border-radius: 1.5rem;
   padding: 2.5rem;
-  color: var(--white);
+  color: #fbfafb; /* Off-white Neutral (for general text in card) */
   text-align: center;
-  outline: none; /* Ensure no default focus outline */
-  border: none; /* Ensure no explicit border */
+  outline: none;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for dark card */
 }
 
 .pricing-content h3 {
@@ -241,6 +258,7 @@ export default {
 .price {
   font-size: 5rem;
   font-weight: 700;
+  color: #fcbe03; /* Accent Yellow for the price to make it pop */
   margin-bottom: 0.25rem;
 }
 
@@ -263,28 +281,34 @@ export default {
 
 .price-features li span {
   font-size: 1.25rem;
+  color: #fcbe03; /* Accent Yellow for check icons */
 }
 
 .btn-white {
-  background-color: var(--white);
-  color: var(--primary);
+  background-color: #fbfafb; /* Off-white Neutral */
+  color: #fd8804; /* Secondary Orange */
   width: 100%;
   padding: 0.75rem;
   font-weight: 600;
-  border: none; /* Ensure no border on the button */
-  outline: none; /* Ensure no default focus outline */
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-white:hover {
-  background-color: var(--gray-100);
+  background-color: #e5efff; /* Light Blue Background for hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .resources-section {
   text-align: center;
+  padding-top: 2rem;
 }
 
 .resources-section h3 {
   font-size: 2rem;
+  color: #022d5e; /* Primary Dark Blue */
   margin-bottom: 2rem;
 }
 
@@ -295,10 +319,11 @@ export default {
 }
 
 .resource-card {
-  background-color: var(--gray-50);
+  background-color: #e5efff; /* Light Blue Background */
   padding: 1.5rem;
   border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .resource-card:hover {
@@ -309,7 +334,8 @@ export default {
 .resource-icon {
   width: 4rem;
   height: 4rem;
-  background-color: rgba(249, 115, 22, 0.1);
+  /* Twitch: Changed background to transparent Primary Dark Blue */
+  background-color: rgba(2, 45, 94, 0.1); /* Primary Dark Blue with 10% opacity */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -319,16 +345,17 @@ export default {
 
 .resource-icon span {
   font-size: 2rem;
-  color: var(--primary);
+  color: #fd8804; /* Secondary Orange (icon color remains strong) */
 }
 
 .resource-card h4 {
   font-size: 1.25rem;
+  color: #022d5e; /* Primary Dark Blue */
   margin-bottom: 0.5rem;
 }
 
 .resource-card p {
-  color: var(--gray-600);
+  color: #4a5568; /* Readable Dark Grey */
   font-size: 0.875rem;
   margin-bottom: 1rem;
 }
@@ -336,8 +363,19 @@ export default {
 .resource-card .btn {
   width: 100%;
   padding: 0.5rem;
-  border: none; /* Ensure no border on the button */
-  outline: none; /* Ensure no default focus outline */
+  border: none;
+  outline: none;
+}
+
+/* Ensure the btn-primary style (from hero) is applied */
+.resource-card .btn.btn-primary {
+  background-color: #fd8804; /* Secondary Orange */
+  color: #022d5e; /* Primary Dark Blue text for contrast */
+}
+
+.resource-card .btn.btn-primary:hover {
+  background-color: #fcbe03; /* Accent Yellow on hover */
+  color: #022d5e; /* Primary Dark Blue text for contrast */
 }
 
 @media (min-width: 768px) {
@@ -348,7 +386,12 @@ export default {
 
 @media (min-width: 1024px) {
   .offer-content {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 0.8fr;
+    align-items: start;
+  }
+
+  .offer-features {
+    padding-right: 2rem;
   }
 }
 </style>

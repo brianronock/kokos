@@ -97,7 +97,7 @@ export default {
 
 <style scoped>
 .faq-section {
-  background-color: var(--gray-50);
+  background-color: var(--blue2);
   padding: 5rem 0;
 }
 
@@ -134,12 +134,12 @@ export default {
 }
 
 .faq-item {
-  background-color: var(--white);
+  background-color: var(--white2);
   border-radius: 0.5rem; /* Slightly less rounded for the border */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   transition: all 0.3s ease;
-  border-top: 4px solid var(--primary); /* Thick orange border */
+  border-top: 4px solid var(--orange1); /* Thick orange border */
 }
 
 .faq-item[open] {
@@ -160,7 +160,7 @@ export default {
 }
 
 .faq-item summary:hover {
-  background-color: rgba(249, 115, 22, 0.05);
+  background-color: var(--blue2);;
 }
 
 .faq-item summary::-webkit-details-marker {

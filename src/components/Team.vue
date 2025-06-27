@@ -68,7 +68,7 @@ export default {
 
 <style scoped>
 .team-section {
-  background-color: #fff;
+  background-color: var(--white2);
   padding: 5rem 0;
 }
 
@@ -103,7 +103,7 @@ export default {
 }
 
 .team-member {
-  background-color: #f9fafb;
+  background-color: var(--white1);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;

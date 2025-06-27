@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .request-demo-section {
-  background-color: var(--gray-50);
+  background-color: var(--blue2);
   padding: 5rem 0;
 }
 

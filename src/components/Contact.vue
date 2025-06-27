@@ -127,9 +127,9 @@ export default {
 
 <style scoped>
 .contact-section {
-  background-color: var(--black);
+  background-color: var(--blue1);
   padding: 5rem 0;
-  color: var(--white);
+  color: var(--white1);
 }
 
 .section-header {
@@ -180,9 +180,9 @@ export default {
 .form-control {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  background-color: var(--gray-800);
-  border: 1px solid var(--gray-700);
-  color: var(--white);
+  background-color: var(--blue1);
+  border: 1px solid var(--orange2);
+  color: var(--white1);
   transition: border-color 0.3s ease;
 }
 
@@ -235,6 +235,7 @@ export default {
 .social-icons {
   display: flex;
   gap: 1rem;
+  
 }
 
 .social-icon {
@@ -250,8 +251,8 @@ export default {
 }
 
 .social-icon:hover {
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--orange1);
+  color: var(--white1);
 }
 
 @media (min-width: 768px) {

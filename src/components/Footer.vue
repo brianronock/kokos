@@ -3,10 +3,13 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <div class="footer-logo">
-            <img src="/images/logo2.png" alt="KOKOS Logo" class="logo-img" />
-            <div class="logo-text">AfriLearn AI Academy</div>
-          </div>
+          <a
+            href="#"
+            class="footer-logo"
+            @click="$emit('navigate', 'home')"
+          >
+            <img src="/images/newlogo.png" alt="KOKOS Logo" class="logo-img" />
+          </a>
           <p class="footer-description">
             Transforming education in Namibia through innovative AI and coding
             programs for the next generation.
@@ -123,9 +126,7 @@ export default {
 };
 </script>
 
----
-
-```css
+--- ```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -136,8 +137,8 @@ export default {
 /* Mid-light Blue: #BBD4F5 */
 
 .footer {
-  background-color: #022D5E; /* Primary Dark Blue background for the footer */
-  color: #FBFAFB; /* Off-white for general text on dark background */
+  background-color: #022d5e; /* Primary Dark Blue background for the footer */
+  color: #fbfafb; /* Off-white for general text on dark background */
   padding: 4rem 0 0;
 }
 
@@ -167,69 +168,67 @@ export default {
 }
 
 .footer-logo .logo-img {
-  height: 3.5rem;
+  height: 10rem;
   width: auto;
+  margin-top: -6.5rem;
+}
+.footer-logo .logo-img:hover {
+  transform: translateY(-0.1rem);
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
 
 .footer-logo .logo-text {
-  color: #FD8804; /* Secondary Orange for the logo text */
+  color: #fd8804; /* Secondary Orange for the logo text */
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.footer-description {
-  color: #BBD4F5; /* Mid-light Blue for description text */
+.footer-about {
+  display: flex;
+  align-items: center;
 }
 
-/* Social link wrapper for better alignment */
 .social-link-wrapper {
-  display: inline-flex; /* Use inline-flex for easier centering/alignment */
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem; /* Space between icon and text */
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Inherit color from parent */
-  transition: color 0.3s ease;
+  justify-content: center;
 }
 
 .social-link-wrapper:hover {
-  color: #FCBE03; /* Accent Yellow on hover for the whole link */
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
 }
 
-.footer-social .social-icon { /* Specific styling for the social icon itself */
+.social-icon {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle white background for icon circle */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fd8804;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FD8804; /* Secondary Orange for the icon */
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 
-.social-link-wrapper:hover .social-icon { /* Hover for the icon within the link */
-  background-color: #FD8804; /* Secondary Orange on hover */
-  color: #022D5E; /* Dark Blue text/icon on hover */
+.social-link-wrapper:hover .social-icon {
+  background-color: #fd8804;
+  color: #022d5e;
 }
 
-.social-text {
-  font-size: 0.95rem; /* Slightly larger text */
-  color: #BBD4F5; /* Mid-light blue for social text */
-  border-bottom: 1px solid transparent; /* No initial border */
-  transition: border-color 0.3s ease;
+.footer-description {
+  color: #bbd4f5; /* Mid-light Blue for description text */
 }
-
-.social-link-wrapper:hover .social-text {
-  border-color: #BBD4F5; /* Add subtle border on hover */
-}
-
 
 .footer-heading {
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
-  color: #FCBE03; /* Accent Yellow for headings */
+  color: #fcbe03; /* Accent Yellow for headings */
 }
 
 .footer-menu {
@@ -241,7 +240,7 @@ export default {
 }
 
 .footer-menu a {
-  color: #BBD4F5; /* Mid-light Blue for menu links */
+  color: #bbd4f5; /* Mid-light Blue for menu links */
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -250,12 +249,12 @@ export default {
 }
 
 .footer-menu a:hover {
-  color: #FD8804; /* Secondary Orange on hover for menu links */
+  color: #fd8804; /* Secondary Orange on hover for menu links */
 }
 
 .footer-menu span {
   font-size: 1rem;
-  color: #FD8804; /* Secondary Orange for arrow icons */
+  color: #fd8804; /* Secondary Orange for arrow icons */
 }
 
 .contact-info {
@@ -270,16 +269,16 @@ export default {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  color: #BBD4F5; /* Mid-light Blue for contact info text */
+  color: #bbd4f5; /* Mid-light Blue for contact info text */
 }
 
 .contact-info span {
-  color: #FD8804; /* Secondary Orange for contact icons */
+  color: #fd8804; /* Secondary Orange for contact icons */
   font-size: 1.25rem;
 }
 
 .newsletter-text {
-  color: #BBD4F5; /* Mid-light Blue for newsletter description */
+  color: #bbd4f5; /* Mid-light Blue for newsletter description */
   margin-bottom: 1.5rem;
 }
 
@@ -292,9 +291,14 @@ export default {
 .newsletter-input {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for input background */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Slightly transparent white for input background */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly more opaque border */
-  color: #FBFAFB; /* Off-white text in input */
+  color: #fbfafb; /* Off-white text in input */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -304,7 +308,7 @@ export default {
 
 .newsletter-input:focus {
   outline: none;
-  border-color: #FD8804; /* Secondary Orange on focus */
+  border-color: #fd8804; /* Secondary Orange on focus */
   box-shadow: 0 0 0 3px rgba(253, 136, 4, 0.2); /* Orange glow on focus */
 }
 
@@ -318,20 +322,21 @@ export default {
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease;
   cursor: pointer;
   border: none;
   font-size: 1.1rem;
   line-height: 1;
 
-  background-color: #FD8804; /* Secondary Orange background */
-  color: #022D5E; /* Dark Blue text on orange button */
+  background-color: #fd8804; /* Secondary Orange background */
+  color: #022d5e; /* Dark Blue text on orange button */
   box-shadow: 0 4px 8px rgba(253, 136, 4, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: #FCBE03; /* Accent Yellow on hover */
-  color: #022D5E; /* Dark Blue text on yellow hover */
+  background-color: #fcbe03; /* Accent Yellow on hover */
+  color: #022d5e; /* Dark Blue text on yellow hover */
   box-shadow: 0 6px 12px rgba(252, 190, 3, 0.3);
   transform: translateY(-2px);
 }
@@ -339,7 +344,6 @@ export default {
 .btn-primary:active {
   transform: translateY(0);
 }
-
 
 .footer-bottom {
   padding: 2rem 0; /* Adjusted padding to be symmetrical */
@@ -349,7 +353,7 @@ export default {
 }
 
 .copyright {
-  color: #BBD4F5; /* Mid-light Blue for copyright text */
+  color: #bbd4f5; /* Mid-light Blue for copyright text */
   margin-bottom: 1rem;
 }
 
@@ -360,13 +364,13 @@ export default {
 }
 
 .legal-link {
-  color: #BBD4F5; /* Mid-light Blue for legal links */
+  color: #bbd4f5; /* Mid-light Blue for legal links */
   transition: color 0.3s ease;
   text-decoration: none; /* Remove default underline */
 }
 
 .legal-link:hover {
-  color: #FD8804; /* Secondary Orange on hover */
+  color: #fd8804; /* Secondary Orange on hover */
 }
 
 @media (min-width: 768px) {

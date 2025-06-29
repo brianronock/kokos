@@ -1,7 +1,7 @@
 <template>
   <section id="demo" class="request-demo-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header" ref="formTop">
         <h2>Request a Demo</h2>
         <p>
           Let us show you how KOKOS can transform your classroom with AI and
@@ -9,15 +9,20 @@
         </p>
       </div>
 
-      <form class="request-demo-form" action="https://formspree.io/f/mkgbkjrq" method="POST">
+      <form
+        v-if="!success"
+        class="request-demo-form"
+        @submit.prevent="handleSubmit"
+      >
         <div class="form-group">
           <label for="name">Name</label>
           <input
             type="text"
             id="name"
             class="form-control"
+            v-model="form.name"
             placeholder="Your name"
-            name="name"
+            required
           />
         </div>
 
@@ -27,8 +32,9 @@
             type="email"
             id="email"
             class="form-control"
+            v-model="form.email"
             placeholder="Your email address"
-            name="email"
+            required
           />
         </div>
 
@@ -38,13 +44,28 @@
             type="text"
             id="school-name"
             class="form-control"
+            v-model="form.school_name"
             placeholder="Your school"
-            name="school_name"
+            required
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit Request</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          :disabled="isSubmitting || success"
+        >
+          {{ isSubmitting ? "Sending..." : "Submit Request" }}
+        </button>
       </form>
+
+      <div v-if="success" class="snackbar success">
+        ✅ Thank you! We'll be in touch soon.
+      </div>
+
+      <div v-if="error" class="snackbar error">
+        ❌ Something went wrong. Please try again.
+      </div>
     </div>
   </section>
 </template>
@@ -52,30 +73,70 @@
 <script>
 export default {
   name: "Demo",
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        school_name: "",
+      },
+      success: false,
+      error: false,
+      isSubmitting: false,
+    };
+  },
+  methods: {
+    async handleSubmit() {
+      this.isSubmitting = true;
+      this.success = false;
+      this.error = false;
+
+      try {
+        const response = await fetch("https://formspree.io/f/xgvyrgbo", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.form),
+        });
+
+        if (response.ok) {
+          this.success = true;
+          this.form = { name: "", email: "", school_name: "" };
+          this.scrollToTop();
+        } else {
+          this.error = true;
+        }
+      } catch (e) {
+        this.error = true;
+      } finally {
+        this.isSubmitting = false;
+      }
+    },
+    scrollToTop() {
+      this.$nextTick(() => {
+        const el = this.$refs.formTop;
+        if (el) {
+          const offset = 100;
+          const top = el.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      });
+    },
+  },
 };
 </script>
 
----
-
-```css
 <style scoped>
-/* --- COLOR PALETTE (for reference) --- */
-/* Primary Dark Blue: #022D5E */
-/* Secondary Orange: #FD8804 */
-/* Accent Yellow: #FCBE03 */
-/* Light Blue Background: #E5EFFF */
-/* Off-white Neutral: #FBFAFB */
-/* Mid-light Blue: #BBD4F5 */
-/* Readable Dark Grey: #4A5568 */
-
 .request-demo-section {
-  background-color: #fbfafb; /* Off-white Neutral for section background */
+  background-color: #bbd4f5;
   padding: 5rem 0;
 }
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1.3rem;
   padding: 0 1rem;
 }
 
@@ -86,13 +147,13 @@ export default {
 
 .section-header h2 {
   font-size: 2.5rem;
-  color: #022d5e; /* Primary Dark Blue for heading */
+  color: #022d5e;
   margin-bottom: 1rem;
 }
 
 .section-header p {
   font-size: 1.25rem;
-  color: #4a5568; /* Readable Dark Grey for description */
+  color: #4a5568;
   max-width: 48rem;
   margin: 0 auto;
 }
@@ -103,10 +164,10 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: #ffffff; /* Pure white for the form background, subtly contrasting section */
+  background-color: #ffffff;
   padding: 2.5rem;
   border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for the form card */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -117,43 +178,64 @@ export default {
 
 .form-group label {
   font-weight: 600;
-  color: #022d5e; /* Primary Dark Blue for labels */
+  color: #022d5e;
 }
 
 .form-control {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  background-color: #fbfafb; /* Off-white Neutral for input fields */
-  border: 1px solid #bbd4f5; /* Mid-light Blue for input border */
-  color: #022d5e; /* Primary Dark Blue for input text */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+  background-color: #fbfafb;
+  border: 1px solid #bbd4f5;
+  color: #022d5e;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control::placeholder {
-  color: #8c9bbd; /* A lighter shade for placeholders, derived from Mid-light Blue or Readable Dark Grey */
+  color: #8c9bbd;
 }
 
 .form-control:focus {
   outline: none;
-  border-color: #fd8804; /* Secondary Orange on focus */
-  box-shadow: 0 0 0 3px rgba(253, 136, 4, 0.2); /* Soft orange glow on focus */
+  border-color: #fd8804;
+  box-shadow: 0 0 0 3px rgba(253, 136, 4, 0.2);
 }
 
 .btn-primary {
-  background-color: #fd8804; /* Secondary Orange for the primary button */
-  color: #022d5e; /* Primary Dark Blue for button text, for strong contrast */
+  background-color: #fd8804;
+  color: #022d5e;
   padding: 0.75rem;
   border: none;
   border-radius: 0.5rem;
-  font-weight: 700; /* Make button text bolder */
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:hover {
-  background-color: #fcbe03; /* Accent Yellow on hover for primary button */
+  background-color: #fcbe03;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.snackbar {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: bold;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.snackbar.success {
+  background-color: #c6f6d5;
+  color: #22543d;
+  border: 1px solid #38a169;
+}
+
+.snackbar.error {
+  background-color: #fed7d7;
+  color: #822727;
+  border: 1px solid #e53e3e;
 }
 </style>

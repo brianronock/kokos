@@ -113,9 +113,6 @@ export default {
 };
 </script>
 
----
-
-```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -127,7 +124,7 @@ export default {
 /* Readable Dark Grey: #4A5568 */
 
 .team-section {
-  background-color:#022D5E; 
+  background-color: #022d5e;
   padding: 5rem 0;
 }
 
@@ -135,6 +132,7 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 .section-header {
@@ -144,13 +142,13 @@ export default {
 
 .section-header h2 {
   font-size: 2.5rem;
-  color: #FBFAFB; 
+  color: #fbfafb;
   margin-bottom: 1rem;
 }
 
 .section-header p {
   font-size: 1.25rem;
-  color: #4a5568; /* Readable Dark Grey */
+  color: #7f8da5; 
   max-width: 48rem;
   margin: 0 auto;
 }

@@ -68,9 +68,6 @@ export default {
 };
 </script>
 
----
-
-```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -90,6 +87,7 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 .section-header {
@@ -134,7 +132,12 @@ export default {
 .feature-icon {
   width: 4rem;
   height: 4rem;
-  background-color: rgba(253, 136, 4, 0.1); /* Secondary Orange with transparency */
+  background-color: rgba(
+    253,
+    136,
+    4,
+    0.1
+  ); /* Secondary Orange with transparency */
   border-radius: 50%;
   display: flex;
   align-items: center;

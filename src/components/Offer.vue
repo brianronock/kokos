@@ -152,9 +152,6 @@ export default {
 };
 </script>
 
----
-
-```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -174,6 +171,7 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 .section-header {
@@ -217,7 +215,12 @@ export default {
   width: 3rem;
   height: 3rem;
   /* Twitch: Changed background to transparent Primary Dark Blue */
-  background-color: rgba(2, 45, 94, 0.1); /* Primary Dark Blue with 10% opacity */
+  background-color: rgba(
+    2,
+    45,
+    94,
+    0.1
+  ); /* Primary Dark Blue with 10% opacity */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -337,7 +340,12 @@ export default {
   width: 4rem;
   height: 4rem;
   /* Twitch: Changed background to transparent Primary Dark Blue */
-  background-color: rgba(2, 45, 94, 0.1); /* Primary Dark Blue with 10% opacity */
+  background-color: rgba(
+    2,
+    45,
+    94,
+    0.1
+  ); /* Primary Dark Blue with 10% opacity */
   border-radius: 50%;
   display: flex;
   align-items: center;

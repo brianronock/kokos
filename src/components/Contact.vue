@@ -3,38 +3,86 @@
     <div class="container">
       <div class="section-header">
         <h2>Get In Touch</h2>
-        <p>Ready to transform education at your school? Send us a message today.</p>
+        <p>
+          Ready to transform education at your school? Send us a message today.
+        </p>
       </div>
 
-      <div class="contact-content">
-        <form class="contact-form" action="https://formspree.io/f/mvgrdkav" method="POST">
+      <transition name="fade">
+        <div v-if="toast.show" :class="['toast', toast.type]">
+          {{ toast.message }}
+        </div>
+      </transition>
+
+      <div class="contact-content" ref="formTop">
+        <form
+          class="contact-form"
+          @submit.prevent="handleSubmit"
+          v-if="!success"
+        >
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name</label>
-              <input type="text" id="firstName" class="form-control" name="firstName" />
+              <input
+                type="text"
+                id="firstName"
+                class="form-control"
+                v-model="form.firstName"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" class="form-control" name="lastName" />
+              <input
+                type="text"
+                id="lastName"
+                class="form-control"
+                v-model="form.lastName"
+                required
+              />
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" name="email" />
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              v-model="form.email"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="schoolName">School Name</label>
-            <input type="text" id="schoolName" class="form-control" name="schoolName" />
+            <input
+              type="text"
+              id="schoolName"
+              class="form-control"
+              v-model="form.schoolName"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" class="form-control" rows="5" name="message"></textarea>
+            <textarea
+              id="message"
+              class="form-control"
+              rows="5"
+              v-model="form.message"
+              required
+            ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            :disabled="isSubmitting || success"
+          >
+            {{ isSubmitting ? "Sending..." : "Send Message" }}
+          </button>
         </form>
       </div>
     </div>
@@ -44,10 +92,72 @@
 <script>
 export default {
   name: "Contact",
+  data() {
+    return {
+      form: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        schoolName: "",
+        message: "",
+      },
+      isSubmitting: false,
+      success: false,
+      toast: {
+        show: false,
+        message: "",
+        type: "", // "success" or "error"
+      },
+    };
+  },
+  methods: {
+    async handleSubmit() {
+      this.isSubmitting = true;
+      this.toast.show = false;
+
+      try {
+        const response = await fetch("https://formspree.io/f/xkgbkdar", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.form),
+        });
+
+        if (response.ok) {
+          this.success = true;
+          this.showToast("Your message was sent successfully!", "success");
+          this.scrollToTop();
+        } else {
+          this.showToast("Something went wrong. Please try again.", "error");
+        }
+      } catch (e) {
+        this.showToast("Network error. Please try again later.", "error");
+      } finally {
+        this.isSubmitting = false;
+      }
+    },
+    showToast(message, type) {
+      this.toast = { show: true, message, type };
+      setTimeout(() => {
+        this.toast.show = false;
+      }, 4000);
+    },
+    scrollToTop() {
+      this.$nextTick(() => {
+        const el = this.$refs.formTop;
+        if (el) {
+          const offset = 400;
+          const top = el.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      });
+    },
+  },
 };
 </script>
 
-```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -68,6 +178,7 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 .section-header {
@@ -135,7 +246,12 @@ export default {
 }
 
 .form-control::placeholder {
-  color: rgba(2, 45, 94, 0.6); /* Slightly transparent Primary Dark Blue for placeholder */
+  color: rgba(
+    2,
+    45,
+    94,
+    0.6
+  ); /* Slightly transparent Primary Dark Blue for placeholder */
 }
 
 .form-control:focus {
@@ -174,6 +290,34 @@ export default {
 
 .btn-primary:active {
   transform: translateY(0);
+}
+/* Fade animation for toast */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.toast {
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 1rem auto 2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  max-width: 600px;
+}
+.toast.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.toast.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 @media (min-width: 768px) {

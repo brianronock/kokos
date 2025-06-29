@@ -1,12 +1,14 @@
 <template>
   <section id="home" class="hero-section">
     <div class="container">
+      <div class="hero-title-cont" >
+        <h1 class="hero-title">
+          Empowering Namibia's Learners with
+          <span class="text-accent">AI & Coding</span>
+        </h1>
+      </div>
       <div class="hero-content">
         <div class="hero-text-col">
-          <h1 class="hero-title">
-            Empowering Namibia's Learners with
-            <span class="text-accent">AI & Coding</span>
-          </h1>
           <p class="hero-text">
             Transforming education through innovative AI and coding programs for
             Grades 1-8, preparing students for the digital future.
@@ -37,9 +39,6 @@ export default {
 };
 </script>
 
----
-
-```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -50,6 +49,7 @@ export default {
 /* Mid-light Blue: #BBD4F5 */
 /* Readable Dark Grey: #4A5568 */
 
+
 .hero-section {
   position: relative;
   color: #fbfafb; /* Off-white for general text on dark background */
@@ -59,8 +59,9 @@ export default {
   /* Updated background image query for a more abstract/futuristic tech vibe */
   background: linear-gradient(
       to right,
-      rgba(2, 45, 94, 0.75), /* Slightly more opaque Primary Dark Blue for better text contrast */
-      rgba(2, 45, 94, 0.75)
+      rgba(2, 45, 94, 0.75),
+      /* Slightly more opaque Primary Dark Blue for better text contrast */
+        rgba(2, 45, 94, 0.75)
     ),
     url("[https://source.unsplash.com/random/1600x900/?futuristic,data,ai,education,abstract](https://source.unsplash.com/random/1600x900/?futuristic,data,ai,education,abstract)")
       center/cover no-repeat;
@@ -72,8 +73,18 @@ export default {
 
 .container {
   max-width: 1200px; /* Ensure content is within a readable width */
-  margin: 0 auto;
+  margin: 2rem;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  text-align: center;
+  height: 100%;          
 }
 
 .hero-content {

@@ -2,9 +2,8 @@
   <header class="navbar">
     <div class="container">
       <div class="navbar-container">
-        <a href="#" class="logo" @click.prevent="$emit('navigate', 'home')">
-          <img src="/images/logo2.png" alt="KOKOS Logo" class="logo-img" />
-          <div class="logo-text">Namibia</div>
+        <a href="#" class="logo" @click="$emit('navigate', 'home')">
+          <img src="/images/newlogo.png" alt="KOKOS Logo" class="logo-img" />
         </a>
 
         <!-- Desktop Navigation -->
@@ -103,16 +102,27 @@ export default {
 .navbar {
   background-color: #022d5e; /* Primary Dark Blue */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Stronger shadow for contrast */
-  position: sticky;
+}
+
+.container {
+  position: relative;
   top: 0;
-  z-index: 1000;
+  z-index: 10000;
+  min-width: 100vw;
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
+  height: 6rem;
+  position: fixed;
+  top: 0;
+  z-index: 9000;
+  background-color: #022d5e; /* Primary Dark Blue */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Stronger shadow for contrast */
+  min-width: 100vw;
+  margin-left: -1.1rem;
 }
 
 .logo {
@@ -127,17 +137,10 @@ export default {
 }
 
 .logo-img {
-  height: 8.5rem; /* Keep logo size as is */
+  height: 12rem; /* Keep logo size as is */
   width: auto;
-  margin-right: -0.5rem;
+  margin: -4rem 0 0 3rem;
   transition: transform 0.3s ease;
-}
-
-.logo-text {
-  color: #fd8804; /* Secondary Orange for logo text */
-  font-size: 1.5rem;
-  font-weight: 300;
-  margin-top: -1rem;
 }
 
 /* .location - uncomment and style if needed
@@ -246,11 +249,14 @@ export default {
   text-decoration: none; /* Ensure no underline */
 }
 
-
-
 .mobile-nav-link:hover {
   color: #fd8804; /* Secondary Orange on hover */
-  background-color: rgba(253, 136, 4, 0.15); /* Subtle orange tint background on hover */
+  background-color: rgba(
+    253,
+    136,
+    4,
+    0.15
+  ); /* Subtle orange tint background on hover */
 }
 
 @media (min-width: 768px) {
@@ -260,6 +266,19 @@ export default {
 
   .mobile-nav {
     display: none;
+  }
+
+  .logo-img {
+    height: 10rem;
+    margin-top: -3.5rem;
+  }
+
+  .navbar-container {
+    height: 5rem;
+  }
+
+  .nav-link {
+    margin-top: 2rem;
   }
 }
 </style>

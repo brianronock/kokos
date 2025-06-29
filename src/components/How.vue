@@ -67,9 +67,7 @@ export default {
 };
 </script>
 
----
-
-```css
+--- ```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -89,6 +87,7 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 .section-header {

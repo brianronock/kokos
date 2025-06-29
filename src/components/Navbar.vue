@@ -91,9 +91,18 @@ export default {
 </script>
 
 <style scoped>
+/* --- COLOR PALETTE (for reference) --- */
+/* Primary Dark Blue: #022D5E */
+/* Secondary Orange: #FD8804 */
+/* Accent Yellow: #FCBE03 */
+/* Light Blue Background: #E5EFFF */
+/* Off-white Neutral: #FBFAFB */
+/* Mid-light Blue: #BBD4F5 */
+/* Readable Dark Grey: #4A5568 */
+
 .navbar {
-  background-color: var(--black);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: #022d5e; /* Primary Dark Blue */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Stronger shadow for contrast */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -118,35 +127,44 @@ export default {
 }
 
 .logo-img {
-  height: 8.5rem;
+  height: 8.5rem; /* Keep logo size as is */
   width: auto;
   margin-right: -0.5rem;
   transition: transform 0.3s ease;
 }
 
 .logo-text {
-  color: var(--primary);
+  color: #fd8804; /* Secondary Orange for logo text */
   font-size: 1.5rem;
   font-weight: 300;
   margin-top: -1rem;
 }
+
+/* .location - uncomment and style if needed
+.location {
+  color: #FBFAFB;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+*/
 
 .desktop-nav {
   display: none;
 }
 
 .nav-link {
-  color: var(--white);
+  color: #fbfafb; /* Off-white Neutral */
   padding: 0.5rem 0.75rem;
   margin: 0 0.25rem;
   font-size: 0.875rem;
   font-weight: 500;
   border-radius: 0.25rem;
   transition: all 0.3s ease;
+  text-decoration: none; /* Ensure no underline */
 }
 
 .nav-link:hover {
-  color: var(--primary);
+  color: #fd8804; /* Secondary Orange on hover */
 }
 
 .mobile-nav {
@@ -160,7 +178,7 @@ export default {
   font-size: 2rem;
   background: none;
   border: none;
-  color: var(--white);
+  color: #fbfafb; /* Off-white Neutral */
   transition: color 0.3s ease;
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 2001;
@@ -222,16 +240,17 @@ export default {
 .mobile-nav-link {
   padding: 1rem;
   text-decoration: none;
-  color: var(--white);
+  color: #fbfafb; /* Off-white Neutral */
   font-size: 1rem;
   transition: background 0.3s ease;
+  text-decoration: none; /* Ensure no underline */
 }
 
 
 
 .mobile-nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--primary);
+  color: #fd8804; /* Secondary Orange on hover */
+  background-color: rgba(253, 136, 4, 0.15); /* Subtle orange tint background on hover */
 }
 
 @media (min-width: 768px) {

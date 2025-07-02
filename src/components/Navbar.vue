@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-container">
         <a href="#" class="logo" @click="$emit('navigate', 'home')">
-          <img src="/images/logo6.png" alt="KOKOS Logo" class="logo-img" />
+          <img src="/images/logo11.png" alt="KOKOS Logo" class="logo-img" />
         </a>
 
         <!-- Desktop Navigation -->
@@ -137,9 +137,9 @@ export default {
 }
 
 .logo-img {
-  height: 15rem; /* Keep logo size as is */
+  height: 6rem; /* Keep logo size as is */
   width: auto;
-  margin: 5.5rem 0 0 1rem;
+  margin: 2.2rem 0 0 2rem;
   transition: transform 0.3s ease;
 }
 
@@ -275,9 +275,8 @@ export default {
   }
 
   .logo-img {
-    height: 15rem;
-    margin-top: 6rem;
-    margin-left: 2rem;
+    height: 6rem;
+    margin: 2.5rem 0 0 2rem;
   }
 
   .navbar-container {

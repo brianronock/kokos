@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-container">
         <a href="#" class="logo" @click="$emit('navigate', 'home')">
-          <img src="/images/newlogo.png" alt="KOKOS Logo" class="logo-img" />
+          <img src="/images/logo6.png" alt="KOKOS Logo" class="logo-img" />
         </a>
 
         <!-- Desktop Navigation -->
@@ -115,7 +115,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6rem;
+  height: 4rem;
   position: fixed;
   top: 0;
   z-index: 9000;
@@ -137,9 +137,9 @@ export default {
 }
 
 .logo-img {
-  height: 12rem; /* Keep logo size as is */
+  height: 15rem; /* Keep logo size as is */
   width: auto;
-  margin: -4rem 0 0 3rem;
+  margin: 5.5rem 0 0 1rem;
   transition: transform 0.3s ease;
 }
 
@@ -179,11 +179,13 @@ export default {
   align-items: center;
   padding: 0.5rem;
   font-size: 2rem;
-  background: none;
-  border: none;
-  color: #fbfafb; /* Off-white Neutral */
-  transition: color 0.3s ease;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0.75rem;
+  color: var(--white);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   z-index: 2001;
   position: relative;
   top: 0rem;
@@ -194,11 +196,15 @@ export default {
 }
 
 .menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
   color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
 .material-symbols-outlined {
-  font-variation-settings: "wght" 300;
-  font-size: 3rem;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  transition: transform 0.3s ease;
+  font-size: 2.8rem;
   position: relative;
   pointer-events: none;
 }
@@ -209,7 +215,7 @@ export default {
   left: 0;
   right: 0;
   z-index: 999;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(1, 7, 14, 0.6);
   height: 100vh;
   display: flex;
   justify-content: flex-end;
@@ -217,16 +223,19 @@ export default {
   transition: background-color 0.4s ease;
 }
 
-/* Slide-down animation */
 .slide-down {
-  background-color: var(--black);
+  background: rgba(109, 163, 255, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   width: 80%;
   max-width: 300px;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   animation: slideIn 0.3s ease forwards;
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 @keyframes slideIn {
@@ -250,13 +259,10 @@ export default {
 }
 
 .mobile-nav-link:hover {
-  color: #fd8804; /* Secondary Orange on hover */
-  background-color: rgba(
-    253,
-    136,
-    4,
-    0.15
-  ); /* Subtle orange tint background on hover */
+  color: #fd8804;
+  background-color: rgba(109, 163, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.228);
+  transition: all 2ms ease-in-out;
 }
 
 @media (min-width: 768px) {
@@ -269,16 +275,17 @@ export default {
   }
 
   .logo-img {
-    height: 10rem;
-    margin-top: -3.5rem;
+    height: 15rem;
+    margin-top: 6rem;
+    margin-left: 2rem;
   }
 
   .navbar-container {
-    height: 5rem;
+    height: 3.5rem;
   }
 
   .nav-link {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
 </style>

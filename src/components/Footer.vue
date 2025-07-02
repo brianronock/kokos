@@ -126,7 +126,6 @@ export default {
 };
 </script>
 
---- ```css
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */

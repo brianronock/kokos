@@ -174,6 +174,35 @@ export default {
   color: #022d5e; /* Default text color for the section */
 }
 
+.contact-section {
+  position: relative;
+  color: #fbfafb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("/images/bg1.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(126, 188, 255, 0.6),
+    rgba(255, 255, 255, 0.95)
+  );
+  z-index: 0;
+}
+
+.contact-section > * {
+  position: relative;
+  z-index: 1;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

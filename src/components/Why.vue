@@ -83,16 +83,49 @@ export default {
   padding: 5rem 0;
 }
 
+.why-section {
+  position: relative;
+  color: #fbfafb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("/images/bg1.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.why-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(126, 188, 255, 0.8),
+    rgba(255, 255, 255, 0.9)
+  );
+  z-index: 0;
+}
+
+.why-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1.5rem;
   padding: 0 1rem;
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .section-header h2 {
@@ -102,8 +135,8 @@ export default {
 }
 
 .section-header p {
-  font-size: 1.25rem;
-  color: #4a5568; /* Readable Dark Grey for description text */
+  font-size: 1.1rem;
+  color: #131e30; /* Readable Dark Grey for description text */
   max-width: 48rem;
   margin: 0 auto;
 }
@@ -116,7 +149,7 @@ export default {
 }
 
 .feature-card {
-  background-color: #ffffff; /* Pure white for cards, contrasting Off-white section background */
+  background-color: #e8eff8e2; /* Pure white for cards, contrasting Off-white section background */
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

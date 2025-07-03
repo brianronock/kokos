@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
---- ```css
+
 <style scoped>
 /* --- COLOR PALETTE (for reference) --- */
 /* Primary Dark Blue: #022D5E */
@@ -81,6 +81,35 @@ export default {
 .how-section {
   background-color: #e5efff; /* Light Blue Background for the section */
   padding: 5rem 0;
+}
+
+.how-section {
+  position: relative;
+  color: #fbfafb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("/images/bg3.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.how-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(126, 188, 255, 0.8),
+    rgba(255, 255, 255, 0.95)
+  );
+  z-index: 0;
+}
+
+.how-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .container {

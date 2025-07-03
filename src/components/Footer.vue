@@ -15,7 +15,7 @@
             programs for the next generation.
           </p>
           <a
-            href="https://www.facebook.com/profile.php?id=61577711432846"
+            href="https://www.facebook.com/profile.php?id=61577846649405"
             class="social-link-wrapper"
             target="_blank"
             rel="noopener"
@@ -68,15 +68,15 @@
           <ul class="contact-info">
             <li>
               <span class="material-symbols-outlined">location_on</span>
-              Independence Avenue, Windhoek, Namibia
+              ERF Academy, Windhoek, Namibia
             </li>
             <li>
               <span class="material-symbols-outlined">phone</span>
-              +264 61 123 4567
+              +264 81 716 4769
             </li>
             <li>
               <span class="material-symbols-outlined">email</span>
-              kokosnamibia@gmail.com
+              contact@futuretechafrica.com
             </li>
             <li>
               <span class="material-symbols-outlined">schedule</span>

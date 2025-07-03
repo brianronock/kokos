@@ -78,11 +78,7 @@
         </div>
 
         <div class="team-member">
-          <img
-            src="/images/alvan.jpg"
-            alt="Nehemiah"
-            class="member-photo"
-          />
+          <img src="/images/alvan.jpg" alt="Nehemiah" class="member-photo" />
           <h3>Nehemiah</h3>
           <p class="member-role">Financial Coordinator</p>
           <p class="member-bio">
@@ -146,7 +142,7 @@ export default {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url("/images/bg2.jpg") center/cover no-repeat;
+  background: url("/images/bg2-mobile2.jpg") center/cover no-repeat;
   background-attachment: fixed;
   padding: 4rem 0;
   overflow: hidden;
@@ -237,6 +233,12 @@ export default {
 .member-bio {
   color: #4a5568; /* Readable Dark Grey */
   font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .team-section {
+    background-image: url("/images/bg2.jpg") center/contain no-repeat;
+  }
 }
 
 @media (min-width: 640px) {

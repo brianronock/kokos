@@ -6,7 +6,7 @@
       :key="currentView"
       @request-demo="goToDemo"
     />
-    <Footer />
+    <Footer @navigate="currentView = $event" @request-demo="goToDemo" />
   </div>
 </template>
 

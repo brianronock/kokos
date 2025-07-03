@@ -89,7 +89,7 @@ export default {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url("/images/bg3.jpg") center/cover no-repeat;
+  background: url("/images/bg3-mobile.jpg") center/cover no-repeat;
   background-attachment: fixed;
   padding: 4rem 0;
   overflow: hidden;
@@ -254,6 +254,13 @@ export default {
   }
   .timeline-content.right .step-number {
     margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .how-section {
+      background: url("/images/bg3.jpg") center/cover no-repeat;
+
   }
 }
 </style>

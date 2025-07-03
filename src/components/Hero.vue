@@ -65,7 +65,7 @@ export default {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url("/images/bg2.jpg") center/cover no-repeat;
+  background: url("/images/bg2-mobile2.jpg") center / cover no-repeat;
   background-attachment: fixed;
   padding: 4rem 0;
   overflow: hidden;
@@ -270,6 +270,12 @@ export default {
     font-size: 1.25rem; /* Larger text on desktop */
     margin-left: 0; /* Remove auto margins for left alignment */
     margin-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    background: url("/images/bg2.jpg") center/cover no-repeat;
   }
 }
 </style>

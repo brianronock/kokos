@@ -173,7 +173,7 @@ export default {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url("/images/bg1.jpg") center/cover no-repeat;
+  background: url("/images/bg1-mobile.jpg") center/cover no-repeat;
   background-attachment: fixed;
   padding: 4rem 0;
   overflow: hidden;
@@ -431,6 +431,10 @@ export default {
 @media (min-width: 768px) {
   .resources-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .offer-section {
+      background: url("/images/bg1.jpg") center/cover no-repeat;
+
   }
 }
 

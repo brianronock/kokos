@@ -223,6 +223,10 @@ export default {
   display: block;
 }
 
+.video-wrapper p {
+  text-align: center;
+}
+
 .video-wrapper:hover {
   color: var(--primary);
   transform: scale(1.01);

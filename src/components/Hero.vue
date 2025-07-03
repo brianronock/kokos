@@ -1,9 +1,9 @@
 <template>
   <section id="home" class="hero-section">
     <div class="container">
-      <div class="hero-title-cont" >
+      <div class="hero-title-cont">
         <h1 class="hero-title">
-          Empowering Namibia's Learners with
+          Empowering Africa's Learners with
           <span class="text-accent">AI & Coding</span>
         </h1>
       </div>
@@ -22,7 +22,17 @@
         </div>
         <div class="hero-video-col">
           <div class="video-wrapper">
-            <video controls width="100%">
+            <div class="video-overlay-text">
+              <p>Discover AI Learning in Action</p>
+            </div>
+            <video
+              controls
+              playsinline
+              controlslist="nodownload"
+              preload="metadata"
+              width="100%"
+              poster="/images/kokosnam_logo.png"
+            >
               <source src="/videos/kokos_india-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -49,42 +59,70 @@ export default {
 /* Mid-light Blue: #BBD4F5 */
 /* Readable Dark Grey: #4A5568 */
 
-
 .hero-section {
   position: relative;
-  color: #fbfafb; /* Off-white for general text on dark background */
+  color: #fbfafb;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  /* Updated background image query for a more abstract/futuristic tech vibe */
-  background: linear-gradient(
-      to right,
-      rgba(2, 45, 94, 0.75),
-      /* Slightly more opaque Primary Dark Blue for better text contrast */
-        rgba(2, 45, 94, 0.75)
-    ),
-    url("[https://source.unsplash.com/random/1600x900/?futuristic,data,ai,education,abstract](https://source.unsplash.com/random/1600x900/?futuristic,data,ai,education,abstract)")
-      center/cover no-repeat;
-  background-attachment: fixed; /* Parallax scroll effect */
-  padding: 4rem 0; /* Add vertical padding for content */
+  background: url("/images/bg2.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  padding: 4rem 0;
+  overflow: hidden;
 }
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(2, 45, 94, 0.95),
+    rgba(15, 80, 155, 0.9)
+  );
+  z-index: 0;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* .hero-section {
+  position: relative;
+  color: #fbfafb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+      to top,
+      rgba(2, 45, 94, 1),
+      rgba(2, 45, 94, 0.9)
+    ),
+    url("/public/images/bg1.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  background-blend-mode:multiply ;
+  padding: 4rem 0; 
+} */
 
 /* hero-overlay is removed as its function is now integrated into hero-section background */
 
 .container {
-  max-width: 1200px; /* Ensure content is within a readable width */
-  margin: 2rem;
+  max-width: 1200px;
+  margin: 1.5rem;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
 }
 
 .hero-title-cont {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   text-align: center;
-  height: 100%;          
+  height: 100%;
 }
 
 .hero-content {
@@ -110,8 +148,9 @@ export default {
 }
 
 .hero-title {
-  font-size: 2.75rem; /* Slightly larger base font size */
-  margin-bottom: 1.5rem;
+  font-size: 2rem; /* Slightly larger base font size */
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   line-height: 1.2;
   color: #fbfafb; /* Off-white for the main title text */
 }
@@ -121,8 +160,8 @@ export default {
 }
 
 .hero-text {
-  font-size: 1.15rem; /* Slightly smaller for better readability on lighter backgrounds */
-  margin-bottom: 2.5rem; /* More space before buttons */
+  font-size: 1.1rem; /* Slightly smaller for better readability on lighter backgrounds */
+  margin-bottom: 1.5rem; /* More space before buttons */
   max-width: 550px; /* Adjust max width for text within new column layout */
   margin-left: auto;
   margin-right: auto;
@@ -134,7 +173,7 @@ export default {
   flex-direction: column;
   gap: 1.25rem; /* More space between buttons */
   justify-content: center;
-  margin-bottom: 2rem; /* Space below buttons before video (on mobile) */
+  margin-bottom: 0.5rem; /* Space below buttons before video (on mobile) */
 }
 
 .btn {
@@ -156,9 +195,9 @@ export default {
 }
 
 .btn-primary:hover {
-  background-color: #fcbe03; /* Accent Yellow on hover */
+  background-color: #022d5e6d; /* Accent Yellow on hover */
+  color: var(--primary);
   transform: translateY(-3px); /* More pronounced lift */
-  box-shadow: 0 8px 20px rgba(252, 190, 3, 0.4); /* Stronger yellow-tinted shadow on hover */
 }
 
 .btn-outline {
@@ -168,10 +207,9 @@ export default {
 }
 
 .btn-outline:hover {
-  background-color: #fcbe03; /* Accent Yellow fill on hover */
+  background-color: #fc9d037b; /* Accent Yellow fill on hover */
   color: #022d5e; /* Primary Dark Blue text on hover */
   transform: translateY(-3px); /* More pronounced lift */
-  box-shadow: 0 6px 15px rgba(252, 190, 3, 0.35); /* Yellow-tinted shadow */
 }
 
 .video-wrapper {
@@ -183,6 +221,17 @@ export default {
 
 .video-wrapper video {
   display: block;
+}
+
+.video-wrapper:hover {
+  color: var(--primary);
+  transform: scale(1.01);
+  transition: transform 0.3s ease-in-out;
+}
+
+.video-overlay-text {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
 }
 
 /* Media Queries for Responsive Layout */

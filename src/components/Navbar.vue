@@ -5,6 +5,7 @@
         <a href="#" class="logo" @click="$emit('navigate', 'home')">
           <img src="/images/logo11.svg" alt="KOKOS Logo" class="logo-img" />
         </a>
+        <!-- <img src="/images/splash.svg" alt="KOKOS motto" class="motto-img" /> -->
 
         <!-- Desktop Navigation -->
         <nav class="desktop-nav">
@@ -119,8 +120,8 @@ export default {
   position: fixed;
   top: 0;
   z-index: 9000;
-  background-color: #022d5e; /* Primary Dark Blue */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Stronger shadow for contrast */
+  background-color: #011d3e; /* Primary Dark Blue */
+  box-shadow: 4px 10px 16px -1px rgba(0, 0, 0, 0.4); /* Stronger shadow for contrast */
   min-width: 100vw;
   margin-left: -1.1rem;
 }
@@ -142,6 +143,14 @@ export default {
   margin: 2.2rem 0 0 2rem;
   transition: transform 0.3s ease;
 }
+
+/* .motto-img {
+  height: 14rem;
+  width: auto;
+  margin: 4.5rem 0 0 -21rem;
+  transition: transform 0.3s ease;
+  z-index: -1000;
+} */
 
 /* .location - uncomment and style if needed
 .location {

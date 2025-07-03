@@ -12,94 +12,106 @@
       <div class="team-grid">
         <div class="team-member">
           <img
-            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+            src="/images/prof-rhoda3.png"
             alt="Prof. Rhoda Birech"
             class="member-photo"
           />
           <h3>Prof. Rhoda Birech</h3>
           <p class="member-role">Visionary Leader</p>
           <p class="member-bio">
-            Driving AI education, with years of experience in academic
-            innovation.
+            A professor, researcher, and trailblazer in education, Prof. Rhoda
+            Birech leads our team with deep expertise in academic innovation and
+            curriculum design. With decades of experience in empowering learners
+            and mentoring educators, she envisions a future where every child in
+            Africa can thrive through AI, coding, and next-generation digital
+            skills.
           </p>
         </div>
 
         <div class="team-member">
-          <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-            alt="Brian"
-            class="member-photo"
-          />
+          <img src="/images/brian.png" alt="Brian" class="member-photo" />
           <h3>Brian</h3>
           <p class="member-role">Tech Specialist</p>
           <p class="member-bio">
-            Ensuring our platform is robust, user-friendly, and secure.
+            A full-stack developer with deep expertise in modern web
+            technologies, Brian ensures that our platform runs smoothly, remains
+            secure, and provides an intuitive experience for both students and
+            educators. His commitment to scalable and efficient code helps bring
+            our AI education vision to life.
           </p>
         </div>
 
         <div class="team-member">
-          <img
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-            alt="Shalom"
-            class="member-photo"
-          />
+          <img src="/images/theresa2.png" alt="Theresa" class="member-photo" />
+          <h3>Theresa</h3>
+          <p class="member-role">Coordination & Marketing Lead</p>
+          <p class="member-bio">
+            Theresa brings structure and heart to our mission. She leads
+            outreach and communication efforts while keeping operations running
+            smoothly behind the scenes.
+          </p>
+        </div>
+
+        <div class="team-member">
+          <img src="/images/shalom2.png" alt="Shalom" class="member-photo" />
           <h3>Shalom</h3>
           <p class="member-role">AI & Coding Enthusiast</p>
           <p class="member-bio">
-            Bridging the gap between code and creativity with a passion for
-            education.
+            Shalom brings a unique blend of technical curiosity and creative
+            energy to the team. With a growing passion for AI, coding, and
+            digital education, she supports our mission to make advanced
+            technology accessible and exciting for young learners across the
+            continent.
           </p>
         </div>
 
         <div class="team-member">
-          <img
-            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-            alt="Alvan"
-            class="member-photo"
-          />
+          <img src="/images/alvan2.png" alt="Alvan" class="member-photo" />
           <h3>Alvan</h3>
           <p class="member-role">Cybersecurity Expert</p>
           <p class="member-bio">
-            Safeguarding digital integrity with expertise in cybersecurity.
+            Alvan plays a key role in ensuring the safety and resilience of our
+            digital infrastructure. With a strong foundation in cybersecurity,
+            he helps protect our platform, users, and data, enabling schools to
+            embrace technology with confidence.
           </p>
         </div>
 
         <div class="team-member">
           <img
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+            src="/images/alvan.jpg"
             alt="Nehemiah"
             class="member-photo"
           />
           <h3>Nehemiah</h3>
           <p class="member-role">Financial Coordinator</p>
           <p class="member-bio">
-            Keeping our project financially sustainable and transparent.
+            Nehemiah ensures our initiative remains financially sustainable and
+            accountable. With a keen eye for detail and a strategic mindset, he
+            manages budgets, streamlines funding processes, and supports
+            long-term growth planning.
           </p>
         </div>
 
         <div class="team-member">
-          <img
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-            alt="Moses"
-            class="member-photo"
-          />
+          <img src="/images/brian.jpg" alt="Moses" class="member-photo" />
           <h3>Moses</h3>
           <p class="member-role">Data Analyst</p>
           <p class="member-bio">
-            Turning data into insights that power our decision-making.
+            Moses transforms raw data into meaningful insights that guide our
+            strategy and impact. His analytical skills help us measure progress
+            and make informed decisions.
           </p>
         </div>
 
         <div class="team-member">
-          <img
-            src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-            alt="Asahel"
-            class="member-photo"
-          />
+          <img src="/images/asahel.jpg" alt="Asahel" class="member-photo" />
           <h3>Asahel</h3>
           <p class="member-role">Technology Integration Specialist</p>
           <p class="member-bio">
-            Ensuring seamless integration of technology in classrooms.
+            Asahel bridges the gap between tech and teaching. He ensures that
+            our tools work seamlessly in real classrooms, empowering educators
+            and learners alike.
           </p>
         </div>
       </div>
@@ -128,11 +140,39 @@ export default {
   padding: 5rem 0;
 }
 
+.team-section {
+  position: relative;
+  color: #fbfafb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("/images/bg2.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.team-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(1, 30, 64, 0.7),
+    rgba(2, 47, 95, 0.9)
+  );
+  z-index: 0;
+}
+
+.team-section > * {
+  position: relative;
+  z-index: 1;
+}
+
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1rem auto;
   padding: 0 1rem;
-  margin-top: 1rem;
 }
 
 .section-header {
@@ -148,7 +188,7 @@ export default {
 
 .section-header p {
   font-size: 1.25rem;
-  color: #7f8da5; 
+  color: #7f8da5;
   max-width: 48rem;
   margin: 0 auto;
 }
@@ -160,7 +200,7 @@ export default {
 }
 
 .team-member {
-  background-color: #ffffff; /* Pure white for cards, contrasts Off-white section background */
+  background-color: #e8eff8e2; /* Pure white for cards, contrasts Off-white section background */
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
@@ -208,11 +248,6 @@ export default {
 @media (min-width: 1024px) {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Centers the 7th item in a 3-column grid by spanning the middle column */
-  .team-member:nth-child(7) {
-    grid-column: 2 / 3;
   }
 }
 </style>

@@ -167,16 +167,54 @@ export default {
   padding: 5rem 0;
 }
 
+.offer-section {
+  position: relative;
+  color: #fbfafb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("/images/bg1.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.offer-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(126, 188, 255, 0.8),
+    rgba(255, 255, 255, 0.95)
+  );
+  z-index: 0;
+}
+
+.offer-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.offer-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1rem;
   padding: 0 1rem;
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-header h2 {
@@ -186,7 +224,7 @@ export default {
 }
 
 .section-header p {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #4a5568; /* Readable Dark Grey */
   max-width: 48rem;
   margin: 0 auto;
@@ -196,7 +234,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .offer-features {
@@ -301,9 +339,11 @@ export default {
 }
 
 .btn-white:hover {
-  background-color: #e5efff; /* Light Blue Background for hover */
+  background-color: var(--orange2); /* Light Blue Background for hover */
   transform: translateY(-2px);
+  color: var(--white);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: solid 0.5px var(--primary);
 }
 
 .resources-section {

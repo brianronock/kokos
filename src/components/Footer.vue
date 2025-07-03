@@ -8,7 +8,7 @@
             class="footer-logo"
             @click="$emit('navigate', 'home')"
           >
-            <img src="/images/newlogo.png" alt="KOKOS Logo" class="logo-img" />
+            <img src="/images/logo11.svg" alt="KOKOS Logo" class="logo-img" />
           </a>
           <p class="footer-description">
             Transforming education in Namibia through innovative AI and coding
@@ -167,9 +167,10 @@ export default {
 }
 
 .footer-logo .logo-img {
-  height: 10rem;
+  height: 5rem;
   width: auto;
-  margin-top: -6.5rem;
+  margin-top: -2.5rem;
+  margin-left: -2rem;
 }
 .footer-logo .logo-img:hover {
   transform: translateY(-0.1rem);

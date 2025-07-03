@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-container">
         <a href="#" class="logo" @click="$emit('navigate', 'home')">
-          <img src="/images/logo11.png" alt="KOKOS Logo" class="logo-img" />
+          <img src="/images/logo11.svg" alt="KOKOS Logo" class="logo-img" />
         </a>
 
         <!-- Desktop Navigation -->

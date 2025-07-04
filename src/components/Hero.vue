@@ -14,6 +14,12 @@
             Grades 1-8, preparing students for the digital future.
           </p>
           <div class="hero-buttons">
+            <a
+              @click.prevent="$emit('navigate', 'about')"
+              class="btn btn-outline"
+            >
+              Learn About Us
+            </a>
             <a @click.prevent="$emit('request-demo')" class="btn btn-primary"
               >Request a Demo</a
             >

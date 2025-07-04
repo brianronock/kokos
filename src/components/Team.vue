@@ -5,7 +5,7 @@
         <h2>Meet Our Team</h2>
         <p>
           Local expertise and international collaboration driving educational
-          innovation in Namibia.
+          innovation in Africa.
         </p>
       </div>
 
@@ -78,7 +78,7 @@
         </div>
 
         <div class="team-member">
-          <img src="/images/alvan.jpg" alt="Nehemiah" class="member-photo" />
+          <img src="/images/nehemiah.png" alt="Nehemiah" class="member-photo" />
           <h3>Nehemiah</h3>
           <p class="member-role">Financial Coordinator</p>
           <p class="member-bio">
@@ -90,7 +90,7 @@
         </div>
 
         <div class="team-member">
-          <img src="/images/brian.jpg" alt="Moses" class="member-photo" />
+          <img src="/images/moses.png" alt="Moses" class="member-photo" />
           <h3>Moses</h3>
           <p class="member-role">Data Analyst</p>
           <p class="member-bio">

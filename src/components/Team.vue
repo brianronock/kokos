@@ -101,7 +101,7 @@
         </div>
 
         <div class="team-member">
-          <img src="/images/asahel.jpg" alt="Asahel" class="member-photo" />
+          <img src="/images/asahel.png" alt="Asahel" class="member-photo" />
           <h3>Asahel</h3>
           <p class="member-role">Technology Integration Specialist</p>
           <p class="member-bio">

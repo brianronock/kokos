@@ -5,6 +5,9 @@
       :is="currentViewComponent"
       :key="currentView"
       @request-demo="goToDemo"
+      @navigate="currentView = $event"
+      @go-home="goToHome"
+      @go-team="goToTeam"
     />
     <Footer @navigate="currentView = $event" @request-demo="goToDemo" />
   </div>
@@ -13,6 +16,7 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 import Demo from "./components/Demo.vue";
+import About from "./components/About.vue";
 import Footer from "./components/Footer.vue";
 import Homepage from "./components/Homepage.vue";
 
@@ -22,6 +26,7 @@ export default {
     Navbar,
     Footer,
     Demo,
+    About,
     Homepage,
   },
   data() {
@@ -31,16 +36,60 @@ export default {
   },
   computed: {
     currentViewComponent() {
-      return this.currentView === "home" ? Homepage : Demo;
+      switch (this.currentView) {
+        case "home":
+          return Homepage;
+        case "demo":
+          return Demo;
+        case "about":
+          return About;
+        default:
+          return Homepage; // fallback
+      }
     },
   },
   methods: {
     async goToDemo() {
-      this.currentView = null; // ensures clean swap
+      this.currentView = null;
       await this.$nextTick();
       this.currentView = "demo";
       await this.$nextTick();
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      window.scrollTo({ top: 0, behavior: "auto" });
+    },
+    async goToHome() {
+      if (this.currentView === "home") {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      } else {
+        this.currentView = null;
+        await this.$nextTick();
+        this.currentView = "home";
+        await this.$nextTick();
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+    },
+    async goToTeam() {
+      if (this.currentView === "home") {
+        // Already on homepage, just scroll
+        const teamSection = document.getElementById("team");
+        if (teamSection) {
+          teamSection.scrollIntoView({ behavior: "auto" });
+        }
+      } else {
+        this.currentView = null;
+        await this.$nextTick();
+        this.currentView = "home";
+        await this.$nextTick();
+
+        // Scroll after homepage is loaded
+        setTimeout(() => {
+          const teamSection = document.getElementById("team");
+          if (teamSection) {
+            teamSection.scrollIntoView({ behavior: "auto" });
+          } else {
+            window.scrollTo({ top: 0, behavior: "auto" });
+          }
+        }, 1);
+      }
     },
   },
 };

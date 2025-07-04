@@ -3,11 +3,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <a
-            href="#"
-            class="footer-logo"
-            @click="$emit('navigate', 'home')"
-          >
+          <a href="#" class="footer-logo" @click="$emit('navigate', 'home')">
             <img src="/images/logo11.svg" alt="KOKOS Logo" class="logo-img" />
           </a>
           <p class="footer-description">
@@ -73,6 +69,14 @@
             <li>
               <span class="material-symbols-outlined">phone</span>
               +264 81 716 4769
+            </li>
+            <li>
+              <span class="material-symbols-outlined">phone</span>
+              +43 660 9177324
+            </li>
+            <li>
+              <span class="material-symbols-outlined">phone</span>
+              +264 81 465 1384
             </li>
             <li>
               <span class="material-symbols-outlined">email</span>

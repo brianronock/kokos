@@ -1,7 +1,10 @@
 <template>
   <div class="homepage-wrapper">
     <main>
-      <Hero @request-demo="$emit('request-demo')" />
+      <Hero
+        @request-demo="$emit('request-demo')"
+        @navigate="$emit('navigate', $event)"
+      />
       <Why />
       <Offer @request-demo="$emit('request-demo')" />
       <How />

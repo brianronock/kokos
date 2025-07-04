@@ -68,7 +68,7 @@
         <div class="pricing-card">
           <div class="pricing-content">
             <h3>Simple Pricing</h3>
-            <div class="price">$4</div>
+            <div class="price">US $4</div>
             <div class="price-period">per learner per month</div>
             <ul class="price-features">
               <li>

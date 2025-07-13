@@ -1,7 +1,7 @@
 <template>
   <section class="demo-video">
     <div class="container">
-      <h2> KOKOS Demo Video</h2>
+      <h2>KOKOS Demo Video</h2>
       <p>
         This demo video explores our AI GetCoding and AI Essentials activities.
       </p>
@@ -171,14 +171,13 @@ export default {
 </script>
 
 <style scoped>
-
 h2 {
   color: var(--blue2);
 }
 
 .container {
-  max-width: 1200px;
-  margin: 2rem auto;
+  max-width: 960px;
+  margin: 0 auto;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
@@ -187,6 +186,7 @@ h2 {
 }
 
 .demo-video {
+  margin-top: 2rem;
   background-color: #f6f8fa;
   padding: 4rem 2rem;
   text-align: center;
@@ -221,15 +221,18 @@ h2 {
   .demo-video {
     background: url("/images/bg3.jpg") center/cover no-repeat;
   }
-  
 }
 
-.video-outer {
+/* .video-outer {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-}
+} */
 
+.video-outer {
+  width: 100%;
+  margin: 0 auto;
+}
 
 .video-preview {
   position: relative;

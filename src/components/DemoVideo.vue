@@ -1,29 +1,50 @@
 <template>
   <section class="demo-video">
     <div class="container">
-      <h2>🎥 KOKOS Demo Video</h2>
+      <h2> KOKOS Demo Video</h2>
       <p>
         This demo video explores our AI GetCoding and AI Essentials activities.
       </p>
 
-      <div class="video-wrapper">
-        <div style="padding: 56.25% 0 0 0; position: relative">
-          <iframe
-            src="https://player.vimeo.com/video/1100922063?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            style="
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-            "
-            title="KokoS.ai Demo Video"
-          ></iframe>
+      <!-- VIDEO BLOCK -->
+      <div class="video-outer">
+        <div class="video-preview">
+          <!-- Thumbnail -->
+          <img
+            v-if="!loadVideo || videoEnded"
+            class="video-thumbnail"
+            src="/images/logo11.svg"
+            alt="KokoS.ai Demo Video Thumbnail"
+            @click="playVideo"
+          />
+          <div
+            v-if="!loadVideo || videoEnded"
+            class="play-button-wrapper"
+            @click="playVideo"
+          >
+            <div class="play-button">
+              <svg viewBox="0 0 100 100" width="100" height="100" fill="white">
+                <polygon points="35,25 75,50 35,75" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Iframe -->
+          <div v-if="loadVideo && !videoEnded" class="video-responsive">
+            <iframe
+              ref="iframe"
+              :src="videoSrc"
+              title="KokoS.ai Demo Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              @load="trackVideoEnd"
+            ></iframe>
+          </div>
         </div>
       </div>
 
+      <!-- Contact Form -->
       <p style="margin-top: 2rem">
         Want a face-to-face meeting? Leave your number and we'll contact you to
         discuss how to implement KOKOS in your school.
@@ -72,6 +93,9 @@
 export default {
   data() {
     return {
+      loadVideo: false,
+      videoEnded: false,
+      videoSrc: "",
       email: "",
       phone: "",
       submitting: false,
@@ -80,6 +104,28 @@ export default {
     };
   },
   methods: {
+    playVideo() {
+      this.loadVideo = true;
+      this.videoEnded = false;
+      this.videoSrc =
+        "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1&enablejsapi=1";
+    },
+    trackVideoEnd() {
+      const iframe = this.$refs.iframe;
+      if (!iframe) return;
+
+      const player = new window.YT.Player(iframe, {
+        events: {
+          onStateChange: (event) => {
+            if (event.data === window.YT.PlayerState.ENDED) {
+              this.videoEnded = true;
+              this.loadVideo = false;
+              this.videoSrc = "";
+            }
+          },
+        },
+      });
+    },
     async handlePhoneSubmit() {
       this.submitting = true;
       this.success = false;
@@ -113,17 +159,31 @@ export default {
       }
     },
   },
+  mounted() {
+    if (!window.YT || !window.YT.Player) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+  },
 };
 </script>
 
 <style scoped>
+
+h2 {
+  color: var(--blue2);
+}
+
+
+.container {
+  margin-top: 2rem;
+}
 .demo-video {
   background-color: #f6f8fa;
   padding: 4rem 2rem;
   text-align: center;
-}
-
-.demo-video {
   position: relative;
   color: #fbfafb;
   min-height: 100vh;
@@ -131,7 +191,6 @@ export default {
   align-items: center;
   background: url("/images/bg2-mobile3.jpg") center / cover no-repeat;
   background-attachment: fixed;
-  padding: 4rem 2rem;
   overflow: hidden;
 }
 
@@ -158,11 +217,94 @@ export default {
   }
 }
 
-.video-wrapper {
-  margin-top: 2rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+.video-outer {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.video-preview {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-preview:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.video-thumbnail {
+  width: 100%;
+  object-fit: cover;
+  filter: blur(2px) brightness(0.7);
+  transition: filter 0.4s ease;
+  border-radius: 0;
+}
+
+.video-preview:hover .video-thumbnail {
+  filter: blur(0.5px) brightness(0.9);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10003;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.video-preview:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.15);
+  opacity: 0.85;
+  color: var(--orange2);
+  background: #ffffff00;
+  box-shadow: 0 10px 30px rgba(253, 176, 22, 0.707);
+}
+
+.play-button-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10004;
+  cursor: pointer;
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 10003;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .phone-form {

@@ -104,7 +104,8 @@ export default {
         if (response.ok) {
           this.success = true;
           this.form = { name: "", email: "", school_name: "" };
-          this.scrollToTop();
+          localStorage.setItem("demoAccess", "granted");
+          this.$emit("navigate", "demo-video");
         } else {
           this.error = true;
         }
@@ -208,7 +209,8 @@ export default {
   border-radius: 0.5rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 

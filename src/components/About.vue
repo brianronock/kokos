@@ -231,6 +231,7 @@ export default {
     font: var(--font3);
     display: flex;
     gap: 2rem;
+    margin-top: -2.5rem;
 }
 
 .btn {

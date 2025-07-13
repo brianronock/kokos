@@ -176,10 +176,16 @@ h2 {
   color: var(--blue2);
 }
 
-
 .container {
-  margin-top: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
 }
+
 .demo-video {
   background-color: #f6f8fa;
   padding: 4rem 2rem;
@@ -215,6 +221,7 @@ h2 {
   .demo-video {
     background: url("/images/bg3.jpg") center/cover no-repeat;
   }
+  
 }
 
 .video-outer {
@@ -222,6 +229,7 @@ h2 {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
 }
+
 
 .video-preview {
   position: relative;

@@ -115,7 +115,7 @@ export default {
 
 .container {
   max-width: 1200px;
-  margin: 1.5rem;
+  margin: 1rem auto;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;

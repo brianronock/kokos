@@ -231,7 +231,7 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   align-self: start;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .demo-video {
@@ -316,7 +316,7 @@ h2 {
 }
 
 .video-thumbnail {
-  width: 100%;
+  width: 50%;
   object-fit: cover;
   filter: blur(2px) brightness(0.7);
   transition: filter 0.4s ease;
@@ -402,7 +402,7 @@ h2 {
 }
 
 .phone-form {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;

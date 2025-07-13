@@ -40,13 +40,6 @@
               allowfullscreen
               @load="trackVideoEnd"
             ></iframe>
-            <button
-              v-if="showUnmute"
-              class="unmute-button"
-              @click="unmuteVideo"
-            >
-              🔈 Unmute
-            </button>
           </div>
         </div>
       </div>
@@ -102,8 +95,6 @@ export default {
     return {
       loadVideo: false,
       videoEnded: false,
-      showUnmute: false,
-      player: null,
       videoSrc: "",
       email: "",
       phone: "",
@@ -122,51 +113,20 @@ export default {
     playVideo() {
       this.loadVideo = true;
       this.videoEnded = false;
-      //   this.videoSrc =
-      //     "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1&mute=1&enablejsapi=1";
-      const base = "https://www.youtube.com/embed/_H1iKeC3M9E";
-      const params = [
-        "rel=0",
-        "modestbranding=1",
-        "autoplay=1",
-        "enablejsapi=1",
-        this.isMobile ? "mute=1" : "", // mute only on mobile
-      ]
-        .filter(Boolean)
-        .join("&");
-
-      this.videoSrc = `${base}?${params}`;
-    },
-
-    unmuteVideo() {
-      if (this.player) {
-        this.player.unMute();
-        this.showUnmute = false;
-      }
+      this.videoSrc =
+        "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1";
     },
     trackVideoEnd() {
       const iframe = this.$refs.iframe;
       if (!iframe) return;
 
-      this.player = new window.YT.Player(iframe, {
+      const player = new window.YT.Player(iframe, {
         events: {
-          onReady: (event) => {
-            this.player = event.target;
-            if (this.player.isMuted()) {
-              this.showUnmute = true;
-            }
-          },
           onStateChange: (event) => {
             if (event.data === window.YT.PlayerState.ENDED) {
               this.videoEnded = true;
               this.loadVideo = false;
               this.videoSrc = "";
-            }
-            if (
-              event.data === window.YT.PlayerState.PLAYING &&
-              !this.player.isMuted()
-            ) {
-              this.showUnmute = false;
             }
           },
         },
@@ -206,8 +166,6 @@ export default {
     },
   },
   mounted() {
-    this.isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
     if (!window.YT || !window.YT.Player) {
       const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
@@ -364,25 +322,6 @@ h2 {
   cursor: pointer;
 }
 
-.unmute-button {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  color: #333;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 10005;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s;
-}
-
-.unmute-button:hover {
-  background: #ffd700;
-}
 .video-responsive {
   position: relative;
   padding-bottom: 56.25%;

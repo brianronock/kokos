@@ -2,12 +2,14 @@
   <section class="demo-video">
     <div class="container">
       <h2>🎥 KOKOS Demo Video</h2>
-      <p>This demo video explores our AI GetCoding and AI Essentials activities.</p>
+      <p>
+        This demo video explores our AI GetCoding and AI Essentials activities.
+      </p>
 
       <div class="video-wrapper">
         <div style="padding: 56.25% 0 0 0; position: relative">
           <iframe
-            src="https://player.vimeo.com/video/1100922063?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            src="https://player.vimeo.com/video/1100922063?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             style="
@@ -23,7 +25,8 @@
       </div>
 
       <p style="margin-top: 2rem">
-        Want a face-to-face meeting? Leave your number and we'll contact you to discuss how to implement KOKOS in your school.
+        Want a face-to-face meeting? Leave your number and we'll contact you to
+        discuss how to implement KOKOS in your school.
       </p>
       <form @submit.prevent="handlePhoneSubmit" class="phone-form">
         <div class="form-group">

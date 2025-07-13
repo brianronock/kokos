@@ -19,6 +19,7 @@ import Demo from "./components/Demo.vue";
 import About from "./components/About.vue";
 import Footer from "./components/Footer.vue";
 import Homepage from "./components/Homepage.vue";
+import DemoVideo from "./components/DemoVideo.vue";
 
 export default {
   name: "App",
@@ -28,6 +29,7 @@ export default {
     Demo,
     About,
     Homepage,
+    DemoVideo,
   },
   data() {
     return {
@@ -43,10 +45,22 @@ export default {
           return Demo;
         case "about":
           return About;
+        case "demo-video":
+          // check localStorage before allowing access
+          return localStorage.getItem("demoAccess") === "granted"
+            ? DemoVideo
+            : Demo;
         default:
           return Homepage; // fallback
       }
     },
+  },
+  mounted() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("access") === "preview157") {
+      localStorage.setItem("demoAccess", "granted");
+      this.currentView = "demo-video";
+    }
   },
   methods: {
     async goToDemo() {

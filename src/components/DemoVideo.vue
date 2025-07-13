@@ -104,11 +104,17 @@ export default {
     };
   },
   methods: {
+    // playVideo() {
+    //   this.loadVideo = true;
+    //   this.videoEnded = false;
+    //   this.videoSrc =
+    //     "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1&enablejsapi=1";
+    // },
     playVideo() {
       this.loadVideo = true;
       this.videoEnded = false;
       this.videoSrc =
-        "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1&enablejsapi=1";
+        "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1&mute=1&enablejsapi=1";
     },
     trackVideoEnd() {
       const iframe = this.$refs.iframe;
@@ -365,5 +371,17 @@ h2 {
 
 .error-message {
   color: #e53e3e;
+}
+
+@media (max-width: 768px) {
+  .video-outer {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+  }
+
+  .video-preview {
+    border-radius: 0;
+  }
 }
 </style>

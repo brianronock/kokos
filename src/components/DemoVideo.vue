@@ -114,7 +114,7 @@ export default {
       this.loadVideo = true;
       this.videoEnded = false;
       this.videoSrc =
-        "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1&mute=1&enablejsapi=1";
+        "https://www.youtube.com/embed/_H1iKeC3M9E?rel=0&modestbranding=1&autoplay=1";
     },
     trackVideoEnd() {
       const iframe = this.$refs.iframe;
@@ -189,10 +189,10 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   align-self: start;
+  margin-top: 2rem;
 }
 
 .demo-video {
-  margin-top: 2rem;
   background-color: #f6f8fa;
   padding: 4rem 2rem;
   text-align: center;
@@ -235,9 +235,18 @@ h2 {
   margin-right: calc(-50vw + 50%);
 } */
 
-.video-outer {
+/* .video-outer {
   width: 100%;
   margin: 0 auto;
+} */
+
+.video-outer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .video-preview {
@@ -373,15 +382,4 @@ h2 {
   color: #e53e3e;
 }
 
-@media (max-width: 768px) {
-  .video-outer {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    width: calc(100% + 2rem);
-  }
-
-  .video-preview {
-    border-radius: 0;
-  }
-}
 </style>

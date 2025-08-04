@@ -11,7 +11,7 @@
             programs for the next generation.
           </p>
           <a
-            href="https://www.facebook.com/profile.php?id=61577846649405"
+            href="https://www.facebook.com/Africafuturetech"
             class="social-link-wrapper"
             target="_blank"
             rel="noopener"

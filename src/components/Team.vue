@@ -11,33 +11,28 @@
 
       <div class="team-grid">
         <div class="team-member">
-          <img
-            src="/images/prof-rhoda3.png"
-            alt="Prof. Rhoda Birech"
-            class="member-photo"
-          />
-          <h3>Prof. Rhoda Birech</h3>
-          <p class="member-role">Visionary Leader</p>
+          <img src="/images/alvan2.png" alt="Alvan" class="member-photo" />
+          <h3>Alvan</h3>
+          <p class="member-role">Local Team Lead <br> Cybersecurity Expert</p>
           <p class="member-bio">
-            A professor, researcher, and trailblazer in education, Prof. Rhoda
-            Birech leads our team with deep expertise in academic innovation and
-            curriculum design. With decades of experience in empowering learners
-            and mentoring educators, she envisions a future where every child in
-            Africa can thrive through AI, coding, and next-generation digital
-            skills.
+            As our Namibia-based team leader, Alvan coordinates on-the-ground
+            operations and partnerships. With a strong background in
+            cybersecurity, he ensures our systems are secure and that local
+            schools can confidently integrate digital learning. His leadership
+            bridges vision with local execution.
           </p>
         </div>
 
         <div class="team-member">
           <img src="/images/brian.png" alt="Brian" class="member-photo" />
           <h3>Brian</h3>
-          <p class="member-role">Tech Specialist</p>
+          <p class="member-role">Co-Team Lead <br> Technical Strategist</p>
           <p class="member-bio">
-            A full-stack developer with deep expertise in modern web
-            technologies, Brian ensures that our platform runs smoothly, remains
-            secure, and provides an intuitive experience for both students and
-            educators. His commitment to scalable and efficient code helps bring
-            our AI education vision to life.
+            Brian co-leads our project from abroad, guiding the technical
+            architecture and software development of our platform. As a
+            full-stack engineer and AI education advocate, he works closely with
+            the local team to build scalable, accessible tools that empower
+            learners across Africa with future-ready skills.
           </p>
         </div>
 
@@ -62,18 +57,6 @@
             digital education, she supports our mission to make advanced
             technology accessible and exciting for young learners across the
             continent.
-          </p>
-        </div>
-
-        <div class="team-member">
-          <img src="/images/alvan2.png" alt="Alvan" class="member-photo" />
-          <h3>Alvan</h3>
-          <p class="member-role">Cybersecurity Expert</p>
-          <p class="member-bio">
-            Alvan plays a key role in ensuring the safety and resilience of our
-            digital infrastructure. With a strong foundation in cybersecurity,
-            he helps protect our platform, users, and data, enabling schools to
-            embrace technology with confidence.
           </p>
         </div>
 
@@ -108,6 +91,23 @@
             Asahel bridges the gap between tech and teaching. He ensures that
             our tools work seamlessly in real classrooms, empowering educators
             and learners alike.
+          </p>
+        </div>
+
+        <div class="team-member">
+          <img
+            src="/images/prof-rhoda3.png"
+            alt="Prof. Rhoda"
+            class="member-photo"
+          />
+          <h3>Prof. Rhoda</h3>
+          <p class="member-role">Advisor <br> Educational Innovator</p>
+          <p class="member-bio">
+            A professor, researcher, and trailblazer in education, Prof. Rhoda
+            now supports our team as a strategic advisor. Her expertise in
+            curriculum design and lifelong work empowering African learners
+            continue to shape our mission of bringing AI and coding to the
+            classroom with purpose and impact.
           </p>
         </div>
       </div>

@@ -94,13 +94,23 @@
           <p class="newsletter-text">
             Subscribe to our newsletter for the latest updates on AI education.
           </p>
-          <form class="newsletter-form">
+          <form @submit.prevent="handleSubmit" class="newsletter-form">
             <input
+              v-model="form.email"
               type="email"
+              name="email"
+              required
               placeholder="Your email address"
               class="newsletter-input"
+              :class="{ 'input-error': emailError }"
             />
+            <p v-if="emailError" class="form-error">{{ emailError }}</p>
+
             <button type="submit" class="btn btn-primary">Subscribe</button>
+
+            <p v-if="success" class="newsletter-success">
+              🎉 Thank you for subscribing!
+            </p>
           </form>
         </div>
       </div>
@@ -122,9 +132,72 @@
 <script>
 export default {
   name: "Footer",
+  data() {
+    return {
+      form: {
+        email: "",
+      },
+      success: false,
+      emailError: "",
+    };
+  },
   computed: {
     currentYear() {
       return new Date().getFullYear();
+    },
+  },
+  methods: {
+    async handleSubmit() {
+      this.emailError = "";
+
+      // Validate email
+      if (!this.form.email) {
+        this.emailError = "Please enter your email address.";
+        setTimeout(() => {
+          if (this.emailError === "Please enter your email address.") {
+            this.emailError = "";
+          }
+        }, 3000);
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(this.form.email)) {
+        this.emailError = "Please enter a valid email address.";
+        setTimeout(() => {
+          if (this.emailError === "Please enter a valid email address.") {
+            this.emailError = "";
+          }
+        }, 3000);
+        return;
+      }
+
+      try {
+        const response = await fetch("https://formspree.io/f/movlkvke", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: this.form.email,
+            message: "KOKOS Newsletter Signup",
+          }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          this.success = true;
+          this.form.email = "";
+          setTimeout(() => (this.success = false), 5000);
+        } else {
+          this.emailError =
+            result?.errors?.[0]?.message || "There was an error.";
+        }
+      } catch (error) {
+        this.emailError = "Network error. Please try again.";
+      }
     },
   },
 };
@@ -316,6 +389,35 @@ export default {
   box-shadow: 0 0 0 3px rgba(253, 136, 4, 0.2); /* Orange glow on focus */
 }
 
+.newsletter-success {
+  color: #fcbe03;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.input-error {
+  border: 2px solid #ff4d4f;
+}
+
+.form-error {
+  color: #ff4d4f;
+  margin: 0.25rem 0 -0.25rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: var(--font2);
+
+}
 /* Primary Button (Subscribe) Styles - adapted for dark background */
 .btn-primary {
   display: inline-flex;

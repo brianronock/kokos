@@ -21,7 +21,7 @@
               Learn About Us
             </a>
             <a @click.prevent="$emit('request-demo')" class="btn btn-primary"
-              >Request a Demo</a
+              >Request Demo Video</a
             >
             <a href="#contact" class="btn btn-outline">Contact Us Today</a>
           </div>

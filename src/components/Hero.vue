@@ -15,6 +15,12 @@
           </p>
           <div class="hero-buttons">
             <a
+              @click.prevent="$emit('navigate', 'apply')"
+              class="btn btn-primary"
+            >
+              Apply Now
+            </a>
+            <a
               @click.prevent="$emit('navigate', 'about')"
               class="btn btn-outline"
             >
